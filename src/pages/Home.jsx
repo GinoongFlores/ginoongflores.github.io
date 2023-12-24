@@ -4,20 +4,22 @@ export default function Home() {
 	return (
 		<>
 			<div name="/">
-				<div className="container py-40">
+				<div className="container py-60">
 					<div className="grid grid-rows-1 md:grid-cols-2 place-items-center content-stretch">
-						<div className="text-center">
-							<h1 className="text-2xl sm:text-5xl py-4">I&apos;m Tian/Chan!</h1>
-							<p className="leading-relaxed">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Doloremque at molestias tenetur, in consectetur fugiat ullam
-								autem molestiae temporibus possimus?
+						<div className="content">
+							<h1 className="text-3xl sm:text-5xl py-6">I&apos;m Christian!</h1>
+							<p className="leading-relaxed text-justify text-lg md:text-xl">
+								A graduating IT student taking a Bachelor of Science in
+								Information Technology at STI College Cagayan de Oro, a thriving
+								student community leader in a student tech organization. Also, I
+								aim to help businesses and individuals increase their online
+								presence by offering web-related projects at reasonable costs.
 							</p>
-							<h1 className="text-2xl sm:text-3xl py-5">
+							<h1 className="text-2xl sm:text-3xl py-6">
 								<Typewriter
 									options={{
 										strings: [
-											"A `Student Leader`",
+											"A `Student Community Leader`",
 											"An `Aspiring Web developer`",
 										],
 										loop: true,

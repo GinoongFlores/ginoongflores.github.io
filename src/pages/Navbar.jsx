@@ -21,7 +21,7 @@ const Navbar = () => {
 			link: "skills",
 		},
 		{
-			name: "Project",
+			name: "Projects",
 			link: "projects",
 		},
 		{
@@ -32,8 +32,16 @@ const Navbar = () => {
 
 	const mapLinks = NavLinks.map((navlink, index) => {
 		return (
-			<li key={index} className="p-4 cursor-pointer">
-				<Link to={navlink.link} smooth={true} key={index}>
+			<li key={index} className="p-6 cursor-pointer">
+				<Link
+					activeClass="active-link"
+					to={navlink.link}
+					smooth={true}
+					spy={true}
+					offset={-70}
+					duration={500}
+					key={index}
+				>
 					{navlink.name}
 				</Link>
 			</li>
