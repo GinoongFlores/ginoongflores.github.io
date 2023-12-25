@@ -3,8 +3,8 @@ import { Carousel } from "flowbite-react";
 const About = () => {
 	return (
 		<>
-			<div name="about">
-				<div className="container py-40">
+			<div id="about">
+				<div className="container py-20 md:py-60">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div className="test">
 							<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">

@@ -4,8 +4,8 @@ import CardProjects from "../components/CardProjects";
 const Projects = () => {
 	return (
 		<>
-			<div name="projects">
-				<div className="container py-40">
+			<div id="projects">
+				<div className="container py-20 md:py-60">
 					<h1 className="mb-10 text-3xl">Notable Projects</h1>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center gap-4">
 						{projectsData.map((card, index) => {

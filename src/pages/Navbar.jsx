@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 import "../index.css";
@@ -29,16 +29,40 @@ const Navbar = () => {
 			link: "contact",
 		},
 	];
+	useEffect(() => {
+		const navbarlinksActive = () => {
+			let position = window.scrollY + 180;
+			NavLinks.forEach((navlink) => {
+				let section = document.getElementById(navlink.link);
+				if (!section) return;
+				if (
+					position >= section.offsetTop &&
+					position <= section.offsetTop + section.offsetHeight
+				) {
+					document
+						.querySelector(`.${navlink.link}-link`)
+						.classList.add("active-link");
+				} else {
+					document
+						.querySelector(`.${navlink.link}-link`)
+						.classList.remove("active-link");
+				}
+			});
+		};
+
+		window.addEventListener("scroll", navbarlinksActive);
+		return () => {
+			window.removeEventListener("scroll", navbarlinksActive);
+		};
+	}, []);
 
 	const mapLinks = NavLinks.map((navlink, index) => {
 		return (
 			<li key={index} className="p-6 cursor-pointer">
 				<Link
-					activeClass="active-link"
+					className={`${navlink.link}-link`}
 					to={navlink.link}
 					smooth={true}
-					spy={true}
-					offset={-70}
 					duration={500}
 					key={index}
 				>
@@ -63,7 +87,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<div className="sticky top-0 flex justify-between items-center h-24 container mx-auto bg-black">
+			<div className="sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto bg-black">
 				<h1 className="w-full text-2xl font-bold invisible md:visible">
 					ginoongflores
 				</h1>

@@ -8,10 +8,10 @@ import { FaTwitterSquare } from "react-icons/fa";
 const Footer = () => {
 	return (
 		<>
-			<div name="contact">
-				<div className="container py-80">
-					<div className="grid grid-cols-1 md:grid-cols-2 place-items-stretch md:place-items-center">
-						<div className="contact ">
+			<div id="contact" className="container">
+				<div className="py-20 md:py-80">
+					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 place-items-stretch md:place-items-center">
+						<div className="contact-content">
 							<h1 className="text-4xl">Contact</h1>
 							<p className="text-xl leading-relaxed py-5">
 								I would be delighted and eager to help your business and
@@ -20,7 +20,7 @@ const Footer = () => {
 								can get the work done.
 							</p>
 						</div>
-						<div className="f1lex flex-col gap-4 text-xl">
+						<div className="f1lex flex-col gap-4 text-lg">
 							<a
 								href="mailto:florespaul161@gmail.com"
 								className="inline-flex items-center gap-3"
@@ -44,36 +44,36 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="container flex flex-col gap-4 md:flex-row justify-between items-center text-center border-t border-gray-600 py-4">
-				<p className="text-sm">
-					Copyright &copy; 2023 Christian Paul H. Flores. All Rights Reserved
-				</p>
-				<div className="text-lg inline-flex gap-4">
-					<a href="#">
-						<FaFacebookSquare
-							target="_blank"
-							className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-						/>
-					</a>
-					<a href="#">
-						<FaInstagramSquare
-							target="_blank"
-							className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-						/>
-					</a>
-					<a href="#">
-						<FaLinkedin
-							target="_blank"
-							className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-						/>
-					</a>
-					<a href="#">
-						<FaTwitterSquare
-							target="_blank"
-							className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-						/>
-					</a>
+				<div className="flex flex-col gap-4 md:flex-row justify-between items-center text-center border-t border-gray-600 py-4">
+					<p className="text-sm">
+						Copyright &copy; 2023 Christian Paul H. Flores. All Rights Reserved
+					</p>
+					<div className="text-lg inline-flex gap-4">
+						<a href="#">
+							<FaFacebookSquare
+								target="_blank"
+								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
+							/>
+						</a>
+						<a href="#">
+							<FaInstagramSquare
+								target="_blank"
+								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
+							/>
+						</a>
+						<a href="#">
+							<FaLinkedin
+								target="_blank"
+								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
+							/>
+						</a>
+						<a href="#">
+							<FaTwitterSquare
+								target="_blank"
+								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 		</>

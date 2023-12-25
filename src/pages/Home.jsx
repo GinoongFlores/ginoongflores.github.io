@@ -3,11 +3,11 @@ import Typewriter from "typewriter-effect";
 export default function Home() {
 	return (
 		<>
-			<div name="/">
-				<div className="container py-60">
-					<div className="grid grid-rows-1 md:grid-cols-2 place-items-center content-stretch">
+			<div>
+				<div className="container py-20 md:py-60">
+					<div className="grid grid-rows-1 md:grid-cols-2 gap-4 md:gap-6 place-items-center content-stretch">
 						<div className="content">
-							<h1 className="text-3xl sm:text-5xl py-6">I&apos;m Christian!</h1>
+							<h1 className="text-2xl sm:text-5xl py-6">I&apos;m Christian!</h1>
 							<p className="leading-relaxed text-justify text-lg md:text-xl">
 								A graduating IT student taking a Bachelor of Science in
 								Information Technology at STI College Cagayan de Oro, a thriving
