@@ -4,17 +4,17 @@ import Navbar from "./pages/Navbar";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
+import Footer from "./pages/Footer";
 
 function App() {
 	return (
 		<>
-			<div className="h-screen">
-				<Navbar />
-				<Home />
-				<About />
-				<Skills />
-				<Projects />
-			</div>
+			<Navbar />
+			<Home />
+			<About />
+			<Skills />
+			<Projects />
+			<Footer />
 		</>
 	);
 }
