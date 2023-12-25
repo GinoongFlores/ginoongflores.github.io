@@ -14,7 +14,7 @@ const CardProjects = ({
 			<Card
 				className="max-w-sm bg-[#212529] h-full border-0"
 				imgAlt={imgAlt}
-				imgSrc={`/img/projects/${imgSrc}`}
+				imgSrc={`/portfolio/img/projects/${imgSrc}`}
 			>
 				<div className="flex flex-col justify-between items-center h-full border-0">
 					<div className="flex flex-col gap-4 text-justify">

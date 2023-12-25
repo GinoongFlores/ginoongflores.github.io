@@ -30,7 +30,7 @@ export default function Home() {
 							</h1>
 						</div>
 						<img
-							src="/img/profiles/dp.png"
+							src="/portfolio/img/profiles/dp.png"
 							alt="profile picture"
 							className="rounded-full border-solid border-2 border-green-500"
 							width={350}
