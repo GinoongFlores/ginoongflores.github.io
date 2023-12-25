@@ -1,11 +1,11 @@
 {
 	"homepage": "https://ginoongflores.github.io/",
-	"name": "portfolio",
+	"name": "ginoongflores.github.io",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"predeploy": "echo \"\" > dist/.nojekyll && npm run build",
+		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist",
 		"dev": "vite",
 		"build": "vite build",
