@@ -1,15 +1,32 @@
-import { Link } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 import { useState, useEffect } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMenu, AiFillUpCircle } from "react-icons/ai";
 
 import "../index.css";
 
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
+	const [scrollPosition, setScrollPosition] = useState(0);
 
 	const toggleMenu = () => {
 		setShowMenu((prev) => !prev);
 	};
+
+	const handleScroll = () => {
+		const position = window.scrollY;
+		setScrollPosition(position);
+	};
+
+	const scrollToTop = () => {
+		scroll.scrollToTop({ delay: 150, smooth: true });
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	});
 
 	const NavLinks = [
 		{
@@ -112,6 +129,18 @@ const Navbar = () => {
 					</h1>
 					{mapLinksResponsive}
 				</ul>
+			</div>
+			<div>
+				<button
+					className={`bg-green-950 z-10 rounded-full border-2 border-green-50 fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
+						scrollPosition > 800
+							? "opacity-100 transform-gpu translate-y-0"
+							: "opacity-0 transform-gpu -translate-y-2"
+					} `}
+					onClick={scrollToTop}
+				>
+					<AiFillUpCircle className="border-0 text-2xl md:text-4xl" />
+				</button>
 			</div>
 		</>
 	);
