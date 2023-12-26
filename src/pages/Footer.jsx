@@ -49,29 +49,33 @@ const Footer = () => {
 						Copyright &copy; 2023 Christian Paul H. Flores. All Rights Reserved
 					</p>
 					<div className="text-lg inline-flex gap-4">
-						<a href="#">
-							<FaFacebookSquare
-								target="_blank"
-								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-							/>
+						<a
+							href="https://www.facebook.com/christianpaulh.flores/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<FaFacebookSquare className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600" />
 						</a>
-						<a href="#">
-							<FaInstagramSquare
-								target="_blank"
-								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-							/>
+						<a
+							href="https://www.instagram.com/ginoongflores"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<FaInstagramSquare className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600" />
 						</a>
-						<a href="#">
-							<FaLinkedin
-								target="_blank"
-								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-							/>
+						<a
+							href="https://www.linkedin.com/in/christian-paul-flores/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<FaLinkedin className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600" />
 						</a>
-						<a href="#">
-							<FaTwitterSquare
-								target="_blank"
-								className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
-							/>
+						<a
+							href="https://www.linkedin.com/in/christian-paul-flores/"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<FaTwitterSquare className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600" />
 						</a>
 					</div>
 				</div>
