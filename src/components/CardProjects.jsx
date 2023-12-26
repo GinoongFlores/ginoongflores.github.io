@@ -28,12 +28,16 @@ const CardProjects = ({
 					<div className="mt-4 flex space-x-3 lg:mt-6">
 						<a
 							href={visitLink}
+							target="_blank"
+							rel="noreferrer"
 							className="inline-flex items-center rounded-lg bg-gray-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 cursor-pointer"
 						>
 							Visit
 						</a>
 						<a
 							href={visitRepo}
+							target="_blank"
+							rel="noreferrer"
 							className="inline-flex items-center text-white rounded-lg hover:bg-gray-800 border-gray-300 bg-gray-700 px-4 py-2 text-center text-sm font-medium focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700 cursor-pointer"
 						>
 							View in GitHub

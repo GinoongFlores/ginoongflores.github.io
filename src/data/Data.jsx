@@ -5,9 +5,8 @@ const projectsData = [
 			"A landing page of the Google Developer Student Clubs STI College CDO",
 		imgSrc: "dscsticdo-website.png",
 		imgAlt: "GDSC STI CDO website",
-		// if not available use # instead of link
 		visitLink: "https://dscsticdo.github.io/",
-		visitRepo: "",
+		visitRepo: "#",
 	},
 	{
 		title: "Panaghiusa Website",
@@ -16,7 +15,7 @@ const projectsData = [
 		imgSrc: "panaghiusa-website.png",
 		imgAlt: "Panaghiusa website",
 		visitLink: "https://panaghiusa.netlify.app/",
-		visitRepo: "test",
+		visitRepo: "#",
 	},
 	{
 		title: "Password Generator",
@@ -24,6 +23,8 @@ const projectsData = [
 			"A simple password generator that generates a random passphrase",
 		imgSrc: "passwordGenerator-website.png",
 		imgAlt: "Password Generator website",
+		visitLink: "https://ginoongflores-password-generator.netlify.app",
+		visitRepo: "#",
 	},
 	{
 		title: "Scoreboard",
@@ -31,6 +32,8 @@ const projectsData = [
 			'Scoreboard is a simple web application that counts "home" and "guest" scores.',
 		imgSrc: "scoreboard-website.png",
 		imgAlt: "Scoreboard website",
+		visitLink: "https://ginoongflores-scrimba-scoreboard.netlify.app",
+		visitRepo: "#",
 	},
 ];
 
