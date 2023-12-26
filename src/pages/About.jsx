@@ -9,10 +9,22 @@ const About = () => {
 						<div className="test">
 							<div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
 								<Carousel slideInterval={3000}>
-									<img src="/img/community/campus-experts-1.jpg" alt="..." />
-									<img src="/img/community/campus-experts-2.jpg" alt="..." />
-									<img src="/img/community/test1.jpg" alt="..." />
-									<img src="/img/community/test1.jpg" alt="..." />
+									<img
+										src="/img/community/gdsc-sticdo-speaker.jpg"
+										alt="GDSC STI CDO"
+									/>
+									<img
+										src="/img/community/gdsc-sticdo.jpg"
+										alt="GDSC STI CDO"
+									/>
+									<img
+										src="/img/community/campus-experts-1.jpg"
+										alt="GitHub Campus Expert"
+									/>
+									<img
+										src="/img/community/campus-experts-2.jpg"
+										alt="GitHub Campus Expert"
+									/>
 									<img src="/img/community/test1.jpg" alt="..." />
 								</Carousel>
 							</div>
