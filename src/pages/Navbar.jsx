@@ -106,7 +106,7 @@ const Navbar = () => {
 		<>
 			<div className="sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto bg-black">
 				<h1 className="w-full text-2xl font-bold invisible md:visible">
-					ginoongflores
+					@ginoongflores
 				</h1>
 				<ul className="hidden md:flex">{mapLinks}</ul>
 				{/* mobile menu */}
