@@ -1,10 +1,15 @@
 import { Carousel } from "flowbite-react";
-import SEO from "../components/SEO";
+import { useContext, useEffect } from "react";
+import SectionContext from "../context/SectionContext";
 
 const About = () => {
+	const { setCurrentSection } = useContext(SectionContext);
+
+	useEffect(() => {
+		setCurrentSection("about");
+	});
 	return (
 		<>
-			<SEO title="About - ginoongflores" />
 			<div id="about">
 				<div className="container py-20 md:py-60">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
