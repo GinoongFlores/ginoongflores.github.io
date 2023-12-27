@@ -4,7 +4,7 @@ import SEO from "../components/SEO";
 export default function Home() {
 	return (
 		<>
-			<SEO />
+			<SEO title="Home - ginoongflores" />
 			<div>
 				<div className="container py-20 md:py-60">
 					<div className="grid grid-rows-1 md:grid-cols-2 gap-4 md:gap-6 place-items-center content-stretch">

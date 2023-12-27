@@ -4,10 +4,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
+import SEO from "../components/SEO";
 
 const Footer = () => {
 	return (
 		<>
+			<SEO title="Contact - ginoongflores" />
 			<div id="contact" className="container">
 				<div className="py-20 md:py-80">
 					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 place-items-stretch md:place-items-center">
