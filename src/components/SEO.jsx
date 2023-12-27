@@ -12,7 +12,6 @@ export default function SEO({
 	return (
 		<Helmet>
 			{/* standard metadata tags */}
-			<title>{title}</title>
 			<meta name="description" content={description} />
 			<meta name="author" content={name} />
 			<meta name="type" content={type} />

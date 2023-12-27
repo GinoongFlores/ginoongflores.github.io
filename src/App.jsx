@@ -6,11 +6,13 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Footer from "./pages/Footer";
 import { HelmetProvider } from "react-helmet-async";
+import SEO from "./components/SEO";
 
 function App() {
 	return (
 		<>
 			<HelmetProvider>
+				<SEO />
 				<Navbar />
 				<Home />
 				<About />
