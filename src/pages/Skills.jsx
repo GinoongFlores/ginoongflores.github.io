@@ -1,16 +1,11 @@
 import { Card } from "flowbite-react";
 import { MdOutlineWeb } from "react-icons/md";
-import { useContext, useEffect } from "react";
-import SectionContext from "../context/SectionContext";
+import SEO from "../components/SEO";
 
 const Skills = () => {
-	const { setCurrentSection } = useContext(SectionContext);
-
-	useEffect(() => {
-		setCurrentSection("skills");
-	});
 	return (
 		<>
+			<SEO title="Skills - ginoongflores" />
 			<div id="skills">
 				<div className="container py-20 md:py-60">
 					<h1 className="mb-10 text-3xl">Skills & Services</h1>
