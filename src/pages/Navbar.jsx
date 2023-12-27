@@ -91,20 +91,21 @@ const Navbar = () => {
 
 	const mapLinksResponsive = NavLinks.map((navlink, index) => {
 		return (
-			<li
+			<Link
+				to={navlink.link}
+				smooth={true}
 				key={index}
-				className="p-4 border-b border-gray-600 cursor-pointer text-center"
+				onClick={toggleMenu}
+				className="p-4 border-b border-gray-600 cursor-pointer text-center block"
 			>
-				<Link to={navlink.link} smooth={true} key={index}>
-					{navlink.name}
-				</Link>
-			</li>
+				{navlink.name}
+			</Link>
 		);
 	});
 
 	return (
 		<>
-			<div className="sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto bg-black">
+			<nav className="sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto bg-black">
 				<h1 className="w-full text-2xl font-bold invisible md:visible">
 					@ginoongflores
 				</h1>
@@ -117,7 +118,7 @@ const Navbar = () => {
 						<AiOutlineMenu size={20} />
 					)}
 				</div>
-				<ul
+				<div
 					className={
 						showMenu
 							? "fixed left-0 top-0 w-full h-full border-r border-r-gray-900 ease-in-out duration-500 bg-black bg-opacity-90"
@@ -128,8 +129,8 @@ const Navbar = () => {
 						ginoongflores
 					</h1>
 					{mapLinksResponsive}
-				</ul>
-			</div>
+				</div>
+			</nav>
 			<div>
 				<button
 					className={`bg-green-950 z-10 rounded-full border-2 border-green-50 fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
