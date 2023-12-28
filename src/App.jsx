@@ -1,3 +1,4 @@
+import React from "react";
 import "./index.css";
 import Home from "./pages/Home";
 import Navbar from "./pages/Navbar";
@@ -9,20 +10,31 @@ import { HelmetProvider } from "react-helmet-async";
 import SEO from "./components/SEO";
 import ReactGA from "react-ga4";
 
+import ThemeContext, { ThemeProvider } from "./contexts/ThemeContext";
+
+function Container() {
+	const { isDarkMode } = React.useContext(ThemeContext);
+	return (
+		<div className={isDarkMode ? "darkmode" : ""}>
+			<SEO />
+			<Navbar />
+			<Home />
+			<About />
+			<Skills />
+			<Projects />
+			<Footer />
+		</div>
+	);
+}
+
 function App() {
 	ReactGA.initialize("G-VG662YF08V");
 	return (
-		<>
+		<ThemeProvider>
 			<HelmetProvider>
-				<SEO />
-				<Navbar />
-				<Home />
-				<About />
-				<Skills />
-				<Projects />
-				<Footer />
+				<Container />
 			</HelmetProvider>
-		</>
+		</ThemeProvider>
 	);
 }
 

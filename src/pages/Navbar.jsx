@@ -1,17 +1,19 @@
+import React from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiFillUpCircle } from "react-icons/ai";
 import ReactGA from "react-ga4";
+import { CiDark } from "react-icons/ci";
 
 import "../index.css";
+
+import ThemeContext from "../contexts/ThemeContext";
 
 const Navbar = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	const [scrollPosition, setScrollPosition] = useState(0);
 
-	const toggleMenu = () => {
-		setShowMenu((prev) => !prev);
-	};
+	const { isDarkMode, toggleTheme } = React.useContext(ThemeContext);
 
 	const handleScroll = () => {
 		const position = window.scrollY;
@@ -21,6 +23,9 @@ const Navbar = () => {
 			hitType: "pageview",
 			page: window.location.pathname,
 		});
+	};
+	const toggleMenu = () => {
+		setShowMenu((prev) => !prev);
 	};
 
 	const scrollToTop = () => {
@@ -102,7 +107,7 @@ const Navbar = () => {
 				smooth={true}
 				key={index}
 				onClick={toggleMenu}
-				className="p-4 border-b border-gray-600 cursor-pointer text-center block"
+				className="p-4 border-b border-gray-600 cursor-pointer text-center block text-white"
 			>
 				{navlink.name}
 			</Link>
@@ -111,19 +116,29 @@ const Navbar = () => {
 
 	return (
 		<>
-			<nav className="sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto bg-black">
+			<nav
+				className={`sticky z-20 top-0 flex justify-between items-center h-24 container mx-auto ${
+					isDarkMode ? "bg-black" : "bg-white"
+				}`}
+			>
 				<h1 className="w-full text-2xl font-bold invisible md:visible">
 					@ginoongflores
 				</h1>
+
+				<div onClick={toggleTheme}>
+					<CiDark className="w-6 h-6 mr-5 cursor-pointer" />
+				</div>
+
 				<ul className="hidden md:flex">{mapLinks}</ul>
 				{/* mobile menu */}
 				<div onClick={toggleMenu} className="block md:hidden z-10">
 					{showMenu ? (
-						<AiOutlineClose size={20} />
+						<AiOutlineClose size={20} className="text-white" />
 					) : (
 						<AiOutlineMenu size={20} />
 					)}
 				</div>
+
 				<div
 					className={
 						showMenu
@@ -131,7 +146,7 @@ const Navbar = () => {
 							: "ease-in-out duration-500 fixed left-[-100%]"
 					}
 				>
-					<h1 className="w-full text-2xl font-bold m-4 text-center">
+					<h1 className="w-full text-2xl font-bold m-4 text-center text-white">
 						ginoongflores
 					</h1>
 					{mapLinksResponsive}
@@ -139,14 +154,14 @@ const Navbar = () => {
 			</nav>
 			<div>
 				<button
-					className={`bg-green-950 z-10 rounded-full border-2 border-green-50 fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
+					className={` z-10 rounded-full fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
 						scrollPosition > 800
 							? "opacity-100 transform-gpu translate-y-0"
 							: "opacity-0 transform-gpu -translate-y-2"
 					} `}
 					onClick={scrollToTop}
 				>
-					<AiFillUpCircle className="border-0 text-2xl md:text-4xl" />
+					<AiFillUpCircle className="border-0 w-10 h-10  text-2xl md:text-4xl" />
 				</button>
 			</div>
 		</>
