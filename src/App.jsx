@@ -7,8 +7,10 @@ import Projects from "./pages/Projects";
 import Footer from "./pages/Footer";
 import { HelmetProvider } from "react-helmet-async";
 import SEO from "./components/SEO";
+import ReactGA from "react-ga4";
 
 function App() {
+	ReactGA.initialize("G-VG662YF08V");
 	return (
 		<>
 			<HelmetProvider>
