@@ -2,8 +2,8 @@ import { Helmet } from "react-helmet-async";
 import PropTypes from "prop-types";
 
 export default function SEO({
-	title = "GinoongFlores - ginoong. flores - ginoongflores - Christian Paul Flores",
-	description = "Christian Paul Flores. Portfolio Website. A graduating IT student taking a Bachelor of Science in Information Technology at STI College Cagayan de Oro, a thriving student community leader in a student tech organization. Also, I aim to help businesses and individuals increase their online presence by offering web-related projects at reasonable costs.",
+	title = "ginoongflores | Christian Paul Flores",
+	description = "Christian Paul Flores. Portfolio Website. A thriving student community leader in a student tech organization. Also, I aim to help businesses and individuals increase their online presence by offering web-related projects at reasonable costs.",
 	name = "Christian Paul Flores",
 	type = "website",
 	url = "https://ginoongflores.github.io/",
@@ -12,9 +12,15 @@ export default function SEO({
 	return (
 		<Helmet>
 			{/* standard metadata tags */}
+			<title>{title}</title>
 			<meta name="description" content={description} />
 			<meta name="author" content={name} />
 			<meta name="type" content={type} />
+			<meta
+				name="keywords"
+				content="ginoongflores, christian paul flores, Christian Paul Flores, GinoongFlores, ginoong. flores, ginoongflores website, web developer cdo, web developer cagayan de oro city"
+			/>
+			<link rel="canonical" href={url} />
 			{/* Open Graph / Facebook */}
 			<meta property="og:type" content={type} />
 			<meta property="og:title" content={title} />
