@@ -1,11 +1,9 @@
 import { projectsData } from "../data/Data";
 import CardProjects from "../components/CardProjects";
-import SEO from "../components/SEO";
 
 const Projects = () => {
 	return (
 		<>
-			<SEO title="Projects - ginoongflores" />
 			<div id="projects">
 				<div className="container py-20 md:py-60">
 					<h1 className="mb-10 text-3xl">Notable Projects</h1>

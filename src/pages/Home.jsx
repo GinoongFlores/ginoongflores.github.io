@@ -14,7 +14,7 @@ export default function Home() {
 							aim to help businesses and individuals increase their online
 							presence by offering web-related projects at reasonable costs.
 						</p>
-						<h1 className="text-2xl sm:text-3xl py-6">
+						<h2 className="text-2xl sm:text-3xl py-6">
 							<Typewriter
 								options={{
 									strings: [
@@ -26,7 +26,7 @@ export default function Home() {
 									autoStart: true,
 								}}
 							/>
-						</h1>
+						</h2>
 					</div>
 					<img
 						src="/img/profiles/dp.png"
