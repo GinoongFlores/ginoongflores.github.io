@@ -1,6 +1,7 @@
 import { Link, animateScroll as scroll } from "react-scroll";
 import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiFillUpCircle } from "react-icons/ai";
+import ReactGA from "react-ga4";
 
 import "../index.css";
 
@@ -15,6 +16,11 @@ const Navbar = () => {
 	const handleScroll = () => {
 		const position = window.scrollY;
 		setScrollPosition(position);
+
+		ReactGA.send({
+			hitType: "pageview",
+			page: window.location.pathname,
+		});
 	};
 
 	const scrollToTop = () => {
