@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiFillUpCircle } from "react-icons/ai";
 import ReactGA from "react-ga4";
 import { CiDark } from "react-icons/ci";
+import { CiSun } from "react-icons/ci";
 
 import "../index.css";
 
@@ -121,12 +122,17 @@ const Navbar = () => {
 					isDarkMode ? "bg-black" : "bg-white"
 				}`}
 			>
-				<h1 className="w-full text-2xl font-bold invisible md:visible">
-					@ginoongflores
-				</h1>
+				<div className="flex items-center gap-4 ">
+					<h1 className="w-full text-2xl font-bold invisible md:visible">
+						@ginoongflores
+					</h1>
 
-				<div onClick={toggleTheme}>
-					<CiDark className="w-6 h-6 mr-5 cursor-pointer" />
+					<div
+						onClick={toggleTheme}
+						className="cursor-pointer md:left-0  relative left-[-190px]"
+					>
+						{isDarkMode ? <CiDark size={25} /> : <CiSun size={25} />}
+					</div>
 				</div>
 
 				<ul className="hidden md:flex">{mapLinks}</ul>
@@ -154,7 +160,7 @@ const Navbar = () => {
 			</nav>
 			<div>
 				<button
-					className={` z-10 rounded-full fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
+					className={`z-10 rounded-full fixed bottom-5 right-5 md:right-10 transition-all duration-500 ${
 						scrollPosition > 800
 							? "opacity-100 transform-gpu translate-y-0"
 							: "opacity-0 transform-gpu -translate-y-2"

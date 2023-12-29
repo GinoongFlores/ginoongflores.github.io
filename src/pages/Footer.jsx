@@ -20,7 +20,7 @@ const Footer = () => {
 								can get the work done.
 							</p>
 						</div>
-						<div className="f1lex flex-col gap-4 text-lg">
+						<div className="flex flex-col gap-4 text-lg">
 							<a
 								href="mailto:florespaul161@gmail.com"
 								className="inline-flex items-center gap-3"

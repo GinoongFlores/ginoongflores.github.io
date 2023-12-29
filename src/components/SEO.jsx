@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function SEO({
 	title = "ginoongflores | Christian Paul Flores",
 	description = "Christian Paul Flores. Portfolio Website. A thriving student community leader in a student tech organization. Also, I aim to help businesses and individuals increase their online presence by offering web-related projects at reasonable costs.",
-	name = "Christian Paul Flores",
+	name = "ginoongflores | Christian Paul Flores",
 	type = "website",
 	url = "https://ginoongflores.github.io/",
 	image = "/img/profiles/dp.png",
