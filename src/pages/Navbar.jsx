@@ -90,6 +90,7 @@ const Navbar = () => {
 			<li key={index} className="p-6 cursor-pointer">
 				<Link
 					className={`${navlink.link}-link`}
+					href={`#${navlink.link}`}
 					to={navlink.link}
 					smooth={true}
 					duration={500}
