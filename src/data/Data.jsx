@@ -1,4 +1,4 @@
-const projectsData = [
+const notableProjectsData = [
 	{
 		title: "GDSC STI CDO Website",
 		description:
@@ -18,9 +18,30 @@ const projectsData = [
 		visitRepo: "#",
 	},
 	{
+		title: "Sample Coffe Website",
+		description:
+			"A landing page website of the Sample Coffee, a fictional coffee shop.",
+		imgSrc: "coffe-sample.png",
+		imgAlt: "Sample Coffee website",
+		visitLink: "https://flwebdev-own-cafe.pages.dev/#",
+		visitRepo: "#",
+	},
+	{
+		title: "Old Portfolio Website",
+		description:
+			"Old portfolio website that I made when I was still learning web development.",
+		imgSrc: "old-portfolio.png",
+		imgAlt: "Old portfolio website",
+		visitLink: "https://fcc-project-myportfolio.netlify.app",
+		visitRepo: "#",
+	},
+];
+
+const otherProjectsData = [
+	{
 		title: "Password Generator",
 		description:
-			"A simple password generator that generates a random passphrase",
+			"A simple password generator that generates a random passphrase.",
 		imgSrc: "passwordGenerator-website.png",
 		imgAlt: "Password Generator website",
 		visitLink: "https://ginoongflores-password-generator.netlify.app",
@@ -29,11 +50,27 @@ const projectsData = [
 	{
 		title: "Scoreboard",
 		description:
-			'Scoreboard is a simple web application that counts "home" and "guest" scores.',
+			'Scoreboard is a simple web application that counts "home" and "guest" scores. ',
 		imgSrc: "scoreboard-website.png",
 		imgAlt: "Scoreboard website",
 		visitLink: "https://ginoongflores-scrimba-scoreboard.netlify.app",
 		visitRepo: "#",
+	},
+	{
+		title: "Unit Converter",
+		description:
+			"A simple unit converter that converts length, mass, and volume. A project I learned froom Scrimba's Frontend Developer Career Path.",
+		imgSrc: "unitConverter-website.png",
+		imgAlt: "Unit Converter website",
+		visitLink: "https://ginoongflores-unitconversion.netlify.app/",
+	},
+	{
+		title: "Simple Candy Crush",
+		description:
+			"A simple candy crush game for my game development subject using plain JavaScript. The game is based on a YouTube tutorial.",
+		imgSrc: "candyCrush-website.png",
+		imgAlt: "Candy Crush website",
+		visitLink: "https://ginoongflores-candy-crush.netlify.app/",
 	},
 ];
 
@@ -61,4 +98,4 @@ const skillsData = [
 	},
 ];
 
-export { projectsData, skillsData };
+export { notableProjectsData, otherProjectsData, skillsData };

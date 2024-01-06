@@ -41,14 +41,6 @@ const CardProjects = ({
 						>
 							Visit
 						</a>
-						<a
-							href={visitRepo}
-							target="_blank"
-							rel="noreferrer"
-							className="inline-flex items-center text-white rounded-lg hover:bg-gray-800 border-gray-300 bg-gray-700 px-4 py-2 text-center text-sm font-medium focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-700 cursor-pointer"
-						>
-							View in GitHub
-						</a>
 					</div>
 				</div>
 			</Card>
