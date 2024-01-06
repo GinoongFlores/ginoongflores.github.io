@@ -13,6 +13,7 @@ export default function SEO({
 		<Helmet>
 			{/* standard metadata tags */}
 			<title>{title}</title>
+			<meta name="robots" content="index, follow" />
 			<meta name="description" content={description} />
 			<meta name="author" content={name} />
 			<meta name="type" content={type} />
