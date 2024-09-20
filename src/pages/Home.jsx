@@ -8,11 +8,11 @@ export default function Home() {
 					<div className="content">
 						<h1 className="text-2xl sm:text-5xl py-6">I&apos;m Christian!</h1>
 						<p className="leading-relaxed text-justify text-lg md:text-xl">
-							A graduating IT student taking a Bachelor of Science in
-							Information Technology at STI College Cagayan de Oro, a thriving
-							student community leader in a student tech organization. Also, I
-							aim to help businesses and individuals increase their online
-							presence by offering web-related projects at reasonable costs.
+							A Bachelor of Science in Information Technology graduate at STI
+							College Cagayan de Oro, a thriving student community leader in a
+							student tech organization. Also, I aim to help businesses and
+							individuals increase their online presence by offering web-related
+							projects at reasonable costs.
 						</p>
 						<h2 className="text-2xl sm:text-3xl py-6">
 							<Typewriter
@@ -20,6 +20,7 @@ export default function Home() {
 									strings: [
 										"A `Student Community Leader`",
 										"An `Aspiring Web developer`",
+										"A Aspiring Product Manager",
 									],
 									loop: true,
 									delay: 50,
