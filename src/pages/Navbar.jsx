@@ -6,8 +6,6 @@ import ReactGA from "react-ga4";
 import { CiDark } from "react-icons/ci";
 import { CiSun } from "react-icons/ci";
 
-import "../index.css";
-
 import ThemeContext from "../contexts/ThemeContext";
 
 const Navbar = () => {
