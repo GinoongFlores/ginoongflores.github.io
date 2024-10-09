@@ -21,7 +21,7 @@ const notableProjectsData = [
 		title: "Sample Coffe Website",
 		description:
 			"A landing page website of the Sample Coffee, a fictional coffee shop.",
-		imgSrc: "coffe-sample.png",
+		imgSrc: "coffe-sample.jpg",
 		imgAlt: "Sample Coffee website",
 		visitLink: "https://flwebdev-own-cafe.pages.dev/#",
 		visitRepo: "#",
@@ -68,7 +68,7 @@ const otherProjectsData = [
 		title: "Simple Candy Crush",
 		description:
 			"A simple candy crush game for my game development subject using plain JavaScript. The game is based on a YouTube tutorial.",
-		imgSrc: "candyCrush-website.png",
+		imgSrc: "candyCrush-website.jpg",
 		imgAlt: "Candy Crush website",
 		visitLink: "https://ginoongflores-candy-crush.netlify.app/",
 	},

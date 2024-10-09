@@ -13,23 +13,25 @@ const Footer = () => {
 					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 place-items-stretch md:place-items-center">
 						<div className="contact-content">
 							<h1 className="text-4xl">Contact</h1>
-							<p className="text-xl leading-relaxed py-5">
-								I would be delighted and eager to help your business and
-								professional aspects by creating web pages to elevate your
-								business online. Send me an email or click the email icon so we
-								can get the work done.
+							<p className="text-xl leading-relaxed text-justify py-5">
+								I am eager to contribute to your business by leveraging my
+								skills in technical and people-centric roles. If you’re looking
+								for someone passionate about driving innovation and fostering
+								collaboration, let’s connect! Feel free to email me or click the
+								email icon to get started. I look forward to discussing how I
+								can help your team achieve its goals.
 							</p>
 						</div>
 						<div className="flex flex-col gap-4 text-lg">
 							<a
-								href="mailto:florespaul161@gmail.com"
+								href="mailto:ginoongflores@gmail.com"
 								className="inline-flex items-center gap-3"
 							>
 								<AiOutlineMail
 									size={24}
 									className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
 								/>
-								florespaul161@gmail.com
+								ginoongflores@gmail.com
 							</a>
 
 							<div className="inline-flex items-center gap-3">
