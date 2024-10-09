@@ -24,14 +24,14 @@ const Footer = () => {
 						</div>
 						<div className="flex flex-col gap-4 text-lg">
 							<a
-								href="mailto:florespaul161@gmail.com"
+								href="mailto:ginoongflores@gmail.com"
 								className="inline-flex items-center gap-3"
 							>
 								<AiOutlineMail
 									size={24}
 									className="text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-600"
 								/>
-								florespaul161@gmail.com
+								ginoongflores@gmail.com
 							</a>
 
 							<div className="inline-flex items-center gap-3">
