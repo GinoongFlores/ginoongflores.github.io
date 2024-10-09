@@ -29,15 +29,30 @@ const About = () => {
 								</Carousel>
 							</div>
 						</div>
+
 						<div className="test2 place-self-center">
-							<h1 className="text-3xl text-center py-4">My Story</h1>
-							<p className="text-justify text-xl">
-								My breakthrough began as a student community leader at a tech
-								organization called GDSC STI CDO and GitHub Campus Expert, where
-								I continuously aimed to increase technological awareness in the
-								student community. Yet, I realized there is a need to provide
-								web services to businesses and professionals using my nurtured
-								and continuous learning in web development.
+							<div className="relative bottom-6">
+								<h1 className="text-3xl text-center">My Story</h1>
+							</div>
+
+							<p className="text-justify text-md md:text-xl">
+								My breakthrough began as a student community leader at Google
+								Developer Student Clubs (GDSC) STI College Cagayan de Oro in
+								2021. In this role, I organized and led tech events on topics
+								such as TensorFlow, Flutter, and Android, and I successfully
+								managed an online hackathon during the COVID-19 pandemic. These
+								experiences honed my skills in event planning, community
+								engagement, and technical education.
+							</p>
+
+							<p className="text-justify text-md md:text-xl mt-6">
+								Currently, I am a GitHub Campus Expert, where I continue to
+								foster technological awareness in the student community. I lead
+								workshops and events on AI coding tools, git, and GitHub,
+								empowering students and professionals to enhance their technical
+								skills and collaborate effectively. My goal is to bridge the gap
+								between technology and people, driving innovation and growth
+								within the tech community.
 							</p>
 						</div>
 					</div>
