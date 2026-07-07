@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; font-family: 'Instrument Sans', sans-serif;
+      --bg: #0A0A0A; --surface: #141414; --border: #232323; --fg: #F2F2F2; --muted: #8A8A8A; --faint: #555555; }
+    body.light { --bg: #FAFAFA; --surface: #FFFFFF; --border: #E5E5E5; --fg: #111111; --muted: #6B6B6B; --faint: #B3B3B3; }
+    * { box-sizing: border-box; }
+    ::-webkit-scrollbar { height: 0; }
+    [data-slide]::-webkit-scrollbar { width: 6px; }
+    [data-slide]::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+    @media (max-width: 720px) {
+      .nav-links { display: none !important; }
+      .slide-inner { padding-left: 24px !important; padding-right: 24px !important; }
+      .hero-title { font-size: 30px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background: var(--bg); color: var(--fg); width: 100vw; height: 100vh; position: relative;">
+
+  <!-- Fixed nav -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; background: linear-gradient(var(--bg), transparent);">
+    <span onClick="{{ goHome }}" style="font-size: 15px; font-weight: 600; cursor: pointer;">@ginoongflores</span>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 24px;">
+      <span onClick="{{ goStack }}" style="font-size: 13px; color: {{ navColor.stack }}; cursor: pointer; font-weight: 600;">Stack</span>
+      <span onClick="{{ goProjects }}" style="font-size: 13px; color: {{ navColor.projects }}; cursor: pointer; font-weight: 600;">Projects</span>
+      <span onClick="{{ goExperience }}" style="font-size: 13px; color: {{ navColor.experience }}; cursor: pointer; font-weight: 600;">Experience</span>
+      <span onClick="{{ goAchievements }}" style="font-size: 13px; color: {{ navColor.achievements }}; cursor: pointer; font-weight: 600;">Achievements</span>
+      <span onClick="{{ goGallery }}" style="font-size: 13px; color: {{ navColor.gallery }}; cursor: pointer; font-weight: 600;">Gallery</span>
+      <span onClick="{{ goWriting }}" style="font-size: 13px; color: {{ navColor.writing }}; cursor: pointer; font-weight: 600;">Writing</span>
+      <span onClick="{{ goContact }}" style="font-size: 13px; color: {{ navColor.contact }}; cursor: pointer; font-weight: 600;">Contact</span>
+      <div onClick="{{ toggleTheme }}" style="display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 2px; cursor: pointer;">
+        <span style="font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{ darkPillBg }}; color: {{ darkPillFg }};">Dark</span>
+        <span style="font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: {{ lightPillBg }}; color: {{ lightPillFg }};">Light</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Filmstrip -->
+  <div ref="{{ filmstripRef }}" style="display: flex; width: 100vw; height: 100vh; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth;">
+
+    <!-- 0: Intro -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 620px; margin: 0 auto; padding: 96px 40px;">
+        <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 32px;">
+          <img src="img/profiles/dp.jpg" alt="Christian Paul Flores" style="width: 80px; height: 80px; object-fit: cover; border-radius: 999px; display: block;">
+          <div>
+            <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin: 0 0 6px 0;">Cagayan de Oro, Philippines</p>
+            <p style="font-size: 15px; font-weight: 500; margin: 0;">Web Developer&nbsp;|&nbsp;Community Leader&nbsp;|&nbsp;Aspiring PM</p>
+          </div>
+        </div>
+        <h1 class="hero-title" style="font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0;">Christian Paul Flores builds websites and student tech communities.</h1>
+        <p style="font-size: 17px; color: var(--muted); line-height: 1.7; margin: 24px 0 0 0;">BSIT graduate with three years across web development and student leadership — from static sites in college to leading the GDSC chapter and serving as a GitHub Campus Expert.</p>
+        <div style="display: flex; gap: 12px; margin-top: 32px;">
+          <a href="/cdn-cgi/l/email-protection#36515f5859595851505a5944534576515b575f5a1855595b" style="display: inline-flex; align-items: center; background: var(--fg); color: var(--bg); font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 6px; cursor: pointer; text-decoration: none;"><span class="__cf_email__" data-cfemail="7b1c12151414151c1d1714091e083b1c161a121755181416">[email&#160;protected]</span></a>
+          <a style="display: inline-flex; align-items: center; border: 1px solid var(--border); color: var(--fg); font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 6px; cursor: pointer; text-decoration: none;">Résumé ↓</a>
+        </div>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint); margin: 56px 0 0 0;">scroll to explore →</p>
+      </div>
+    </div>
+
+    <!-- 1: Tech Stack -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 620px; margin: 0 auto; padding: 96px 40px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 24px 0;">01 — Tech stack</p>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 14px 0;">Web development</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">HTML/CSS</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">JavaScript</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">React</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Astro</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Tailwind CSS</span>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 14px 0;">Tools &amp; analytics</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Git / GitHub</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Google Analytics</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Microsoft Clarity</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px;">Figma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: Projects -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 640px; margin: 0 auto; padding: 96px 40px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px 0;">02 — Selected work</p>
+        <div style="border-top: 1px solid var(--border);">
+          <div style="display: grid; grid-template-columns: 32px 1fr 140px 20px; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">01</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">GDSC STI CDO Website</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Community landing page · 2022</p></div>
+            <img src="img/projects/dscsticdo-website.png" alt="GDSC STI CDO website" style="width: 140px; border-radius: 6px; border: 1px solid var(--border); display: block;">
+            <span style="color: var(--faint);">↗</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 32px 1fr 140px 20px; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">02</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">Panaghiusa Website</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Solution Challenge 2022</p></div>
+            <img src="img/projects/panaghiusa-website.png" alt="Panaghiusa website" style="width: 140px; border-radius: 6px; border: 1px solid var(--border); display: block;">
+            <span style="color: var(--faint);">↗</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 32px 1fr 140px 20px; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">03</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">Sample Coffee</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Landing page · 2023</p></div>
+            <img src="img/projects/coffe-sample.jpg" alt="Sample Coffee website" style="width: 140px; border-radius: 6px; border: 1px solid var(--border); display: block;">
+            <span style="color: var(--faint);">↗</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 32px 1fr 140px 20px; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">04</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">Password Generator</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Utility tool · 2023</p></div>
+            <img src="img/projects/passwordGenerator-website.png" alt="Password Generator website" style="width: 140px; border-radius: 6px; border: 1px solid var(--border); display: block;">
+            <span style="color: var(--faint);">↗</span>
+          </div>
+        </div>
+        <a style="display: inline-block; font-size: 13px; font-weight: 600; color: var(--fg); text-decoration: underline; text-underline-offset: 4px; margin-top: 20px; cursor: pointer;">All projects →</a>
+      </div>
+    </div>
+
+    <!-- 3: Experience -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 640px; margin: 0 auto; padding: 96px 40px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px 0;">03 — Experience</p>
+        <div style="border-top: 1px solid var(--border);">
+          <div style="display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--border);">
+            <div>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">2022 — Now</span>
+              <span style="display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; background: var(--fg); color: var(--bg); border-radius: 4px; padding: 2px 8px; margin-top: 8px;">NOW</span>
+            </div>
+            <div>
+              <h3 style="font-size: 17px; font-weight: 600; margin: 0;">GitHub Campus Expert</h3>
+              <ul style="font-size: 14px; color: var(--muted); line-height: 1.7; margin: 10px 0 0 0; padding-left: 18px;">
+                <li>Lead workshops on AI coding tools, git, and GitHub.</li>
+                <li>Foster technological awareness across the regional student community.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">2021 — 2022</span>
+            <div>
+              <h3 style="font-size: 17px; font-weight: 600; margin: 0;">GDSC Lead — STI College CDO</h3>
+              <ul style="font-size: 14px; color: var(--muted); line-height: 1.7; margin: 10px 0 0 0; padding-left: 18px;">
+                <li>Organized and led tech events on TensorFlow, Flutter, and Android.</li>
+                <li>Managed an online hackathon during the COVID-19 pandemic.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: Achievements -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 640px; margin: 0 auto; padding: 96px 40px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px 0;">04 — Achievements</p>
+        <div style="border-top: 1px solid var(--border);">
+          <div style="display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">01</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">GitHub Campus Expert — accepted 2022</h3><p style="font-size: 14px; color: var(--muted); line-height: 1.6; margin: 6px 0 0 0;">One of few Campus Experts in the Philippines.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">02</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">Google Solution Challenge 2022 — Panaghiusa</h3><p style="font-size: 14px; color: var(--muted); line-height: 1.6; margin: 6px 0 0 0;">Built the landing page for our chapter's entry.</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint);">03</span>
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">Online hackathon organizer — 2021</h3><p style="font-size: 14px; color: var(--muted); line-height: 1.6; margin: 6px 0 0 0;">Ran a fully-remote hackathon during the pandemic.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: Gallery -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 640px; margin: 0 auto; padding: 96px 40px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 24px 0;">05 — Gallery</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <img src="img/community/gdsc-sticdo-speaker.jpg" alt="Speaking at GDSC STI CDO" style="width: 100%; height: 190px; object-fit: cover; border-radius: 8px; display: block;">
+          <img src="img/community/campus-experts-1.jpg" alt="GitHub Campus Experts" style="width: 100%; height: 190px; object-fit: cover; border-radius: 8px; display: block;">
+          <img src="img/community/gdsc-sticdo.jpg" alt="GDSC STI CDO community" style="width: 100%; height: 190px; object-fit: cover; border-radius: 8px; display: block;">
+          <img src="img/community/campus-experts-2.jpg" alt="Campus Experts meetup" style="width: 100%; height: 190px; object-fit: cover; border-radius: 8px; display: block;">
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: Writing -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 640px; margin: 0 auto; padding: 96px 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px 0;">06 — Writing</p>
+          <a style="font-size: 12px; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">dev.to profile ↗</a>
+        </div>
+        <div style="border-top: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">[ first dev.to post title ]</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Pulled from your dev.to feed at build time.</p></div>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint); flex-shrink: 0;">— min read</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); cursor: pointer;">
+            <div><h3 style="font-size: 16px; font-weight: 600; margin: 0;">[ second post title ]</h3><p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Astro fetches these via the dev.to API.</p></div>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--faint); flex-shrink: 0;">— min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7: Contact -->
+    <div data-slide style="flex: 0 0 100vw; height: 100vh; overflow-y: auto; scroll-snap-align: start; display: flex; align-items: safe center; padding-top: 88px;">
+      <div class="slide-inner" style="max-width: 620px; margin: 0 auto; padding: 96px 40px; text-align: center;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 0 0 20px 0;">07 — Contact</p>
+        <h2 style="font-size: 40px; font-weight: 600; letter-spacing: -0.02em; margin: 0; cursor: pointer;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4e292720212120292822213c2b3d0e29232f2722602d2123">[email&#160;protected]</a></h2>
+        <div style="display: flex; justify-content: center; gap: 24px; margin-top: 32px;">
+          <span style="font-size: 14px; color: var(--muted); cursor: pointer;">GitHub</span>
+          <span style="font-size: 14px; color: var(--muted); cursor: pointer;">LinkedIn</span>
+          <span style="font-size: 14px; color: var(--muted); cursor: pointer;">Instagram</span>
+        </div>
+        <p style="font-size: 13px; color: var(--faint); margin: 56px 0 0 0;">© 2026 Christian Paul H. Flores · Cagayan de Oro, PH · Built with Astro</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Dot indicator -->
+  <div style="position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 10px; background: var(--bg); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border);">
+    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+      <span onClick="{{ dot.go }}" style="width: 7px; height: 7px; border-radius: 999px; background: {{ dot.color }}; cursor: pointer; display: block; transition: background 0.2s;"></span>
+    </sc-for>
+  </div>
+
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+const SLIDE_COUNT = 8;
+
+class Component extends DCLogic {
+  state = { isDark: true, activeIndex: 0 };
+
+  filmstripRef = React.createRef();
+
+  componentDidMount() {
+    document.body.classList.toggle("light", !this.state.isDark);
+    this._onKey = (e) => {
+      if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); this.goTo(this.state.activeIndex + 1); }
+      if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); this.goTo(this.state.activeIndex - 1); }
+    };
+    window.addEventListener("keydown", this._onKey);
+
+    const el = this.filmstripRef.current;
+    if (el) {
+      this._wheelLock = false;
+      this._onWheel = (e) => {
+        const deltaY = e.deltaY;
+        const deltaX = e.deltaX;
+        if (Math.abs(deltaY) <= Math.abs(deltaX)) return; // native horizontal gesture, let it be
+        const slideEl = e.target.closest ? e.target.closest("[data-slide]") : null;
+        if (slideEl) {
+          const canScrollDown = deltaY > 0 && (slideEl.scrollTop + slideEl.clientHeight < slideEl.scrollHeight - 2);
+          const canScrollUp = deltaY < 0 && slideEl.scrollTop > 2;
+          if (canScrollDown || canScrollUp) return; // let internal vertical scroll happen first
+        }
+        e.preventDefault();
+        if (this._wheelLock || Math.abs(deltaY) < 6) return;
+        this._wheelLock = true;
+        this.goTo(this.state.activeIndex + (deltaY > 0 ? 1 : -1));
+        setTimeout(() => { this._wheelLock = false; }, 650);
+      };
+      el.addEventListener("wheel", this._onWheel, { passive: false });
+
+      this._onScroll = () => {
+        if (this._raf) return;
+        this._raf = requestAnimationFrame(() => {
+          this._raf = null;
+          const idx = Math.round(el.scrollLeft / window.innerWidth);
+          if (idx !== this.state.activeIndex) this.setState({ activeIndex: idx });
+        });
+      };
+      el.addEventListener("scroll", this._onScroll, { passive: true });
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this._onKey);
+    const el = this.filmstripRef.current;
+    if (el) {
+      el.removeEventListener("wheel", this._onWheel);
+      el.removeEventListener("scroll", this._onScroll);
+    }
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+
+  goTo(index) {
+    const clamped = Math.max(0, Math.min(SLIDE_COUNT - 1, index));
+    const el = this.filmstripRef.current;
+    if (el) el.scrollTo({ left: clamped * window.innerWidth, behavior: "smooth" });
+    this.setState({ activeIndex: clamped });
+  }
+
+  renderVals() {
+    const { isDark, activeIndex } = this.state;
+    const active = "var(--fg)";
+    const inactive = "var(--faint)";
+    const navColor = {
+      stack: activeIndex === 1 ? active : inactive,
+      projects: activeIndex === 2 ? active : inactive,
+      experience: activeIndex === 3 ? active : inactive,
+      achievements: activeIndex === 4 ? active : inactive,
+      gallery: activeIndex === 5 ? active : inactive,
+      writing: activeIndex === 6 ? active : inactive,
+      contact: activeIndex === 7 ? active : inactive,
+    };
+    return {
+      filmstripRef: this.filmstripRef,
+      goHome: () => this.goTo(0),
+      goStack: () => this.goTo(1),
+      goProjects: () => this.goTo(2),
+      goExperience: () => this.goTo(3),
+      goAchievements: () => this.goTo(4),
+      goGallery: () => this.goTo(5),
+      goWriting: () => this.goTo(6),
+      goContact: () => this.goTo(7),
+      navColor,
+      toggleTheme: () => {
+        const next = !isDark;
+        document.body.classList.toggle("light", !next);
+        this.setState({ isDark: next });
+      },
+      darkPillBg: isDark ? "var(--fg)" : "transparent",
+      darkPillFg: isDark ? "var(--bg)" : "var(--muted)",
+      lightPillBg: !isDark ? "var(--fg)" : "transparent",
+      lightPillFg: !isDark ? "var(--bg)" : "var(--muted)",
+      dots: Array.from({ length: SLIDE_COUNT }, (_, i) => ({
+        color: i === activeIndex ? "var(--fg)" : "var(--border)",
+        go: () => this.goTo(i),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

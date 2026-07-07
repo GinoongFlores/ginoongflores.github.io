@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Instrument Sans', sans-serif; background: #0A0A0A; }
+  </style>
+</helmet>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 80px 40px 120px 40px; color: #F2F2F2;">
+
+  <!-- Header -->
+  <header style="border-bottom: 1px solid #232323; padding-bottom: 40px; margin-bottom: 64px;">
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; margin: 0 0 16px 0;">ginoongflores — design system v1</p>
+    <h1 style="font-size: 56px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px 0;">Monochrome</h1>
+    <p style="font-size: 18px; color: #8A8A8A; max-width: 560px; line-height: 1.6; margin: 0;">A minimalist black &amp; white system for a resume-style portfolio. One typeface, no accent colors — hierarchy comes from weight, size, and tone. Dark and light modes are mirror images of the same tokens.</p>
+  </header>
+
+  <!-- Principles -->
+  <section style="margin-bottom: 80px;">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; font-weight: 500; margin: 0 0 24px 0;">01 — Principles</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div style="border: 1px solid #232323; border-radius: 8px; padding: 24px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">Tone over color</h3>
+        <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 0;">Emphasis is created with grayscale steps, never hue. Interactive elements brighten on hover instead of changing color.</p>
+      </div>
+      <div style="border: 1px solid #232323; border-radius: 8px; padding: 24px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">Content is the interface</h3>
+        <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 0;">Sparse chrome, generous whitespace, thin hairline dividers. Project screenshots are the only imagery.</p>
+      </div>
+      <div style="border: 1px solid #232323; border-radius: 8px; padding: 24px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">Two modes, one system</h3>
+        <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 0;">Every token has a dark and light value. Components never hard-code a color — they reference the token pair.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color -->
+  <section style="margin-bottom: 80px;">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; font-weight: 500; margin: 0 0 24px 0;">02 — Color tokens</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <!-- Dark column -->
+      <div style="border: 1px solid #232323; border-radius: 12px; overflow: hidden;">
+        <div style="background: #0A0A0A; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8A8A8A; margin: 0 0 4px 0;">DARK (default)</p>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #0A0A0A; border: 1px solid #232323;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">bg · #0A0A0A</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #141414; border: 1px solid #232323;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">surface · #141414</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #232323;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">border · #232323</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #F2F2F2;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">text · #F2F2F2</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #8A8A8A;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">muted · #8A8A8A</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #555555;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #F2F2F2;">faint · #555555</span></div>
+        </div>
+      </div>
+      <!-- Light column -->
+      <div style="border: 1px solid #232323; border-radius: 12px; overflow: hidden;">
+        <div style="background: #FAFAFA; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+          <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B6B6B; margin: 0 0 4px 0;">LIGHT</p>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #FAFAFA; border: 1px solid #E5E5E5;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">bg · #FAFAFA</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #FFFFFF; border: 1px solid #E5E5E5;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">surface · #FFFFFF</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #E5E5E5;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">border · #E5E5E5</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #111111;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">text · #111111</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #6B6B6B;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">muted · #6B6B6B</span></div>
+          <div style="display: flex; align-items: center; gap: 16px;"><div style="width: 48px; height: 32px; border-radius: 6px; background: #B3B3B3;"></div><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111111;">faint · #B3B3B3</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section style="margin-bottom: 80px;">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; font-weight: 500; margin: 0 0 24px 0;">03 — Typography</h2>
+    <p style="font-size: 14px; color: #8A8A8A; margin: 0 0 32px 0; max-width: 560px; line-height: 1.6;">Instrument Sans for everything. IBM Plex Mono only for tiny meta labels (dates, section numbers, tags) — a quiet nod to the dev audience.</p>
+    <div style="display: flex; flex-direction: column; gap: 24px; border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+      <div style="display: flex; align-items: baseline; gap: 24px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; width: 140px; flex-shrink: 0;">display / 64 / 600</span><span style="font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05;">Christian Flores</span></div>
+      <div style="display: flex; align-items: baseline; gap: 24px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; width: 140px; flex-shrink: 0;">h1 / 40 / 600</span><span style="font-size: 40px; font-weight: 600; letter-spacing: -0.02em;">Section heading</span></div>
+      <div style="display: flex; align-items: baseline; gap: 24px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; width: 140px; flex-shrink: 0;">h2 / 24 / 600</span><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.01em;">Card or project title</span></div>
+      <div style="display: flex; align-items: baseline; gap: 24px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; width: 140px; flex-shrink: 0;">body / 16 / 400</span><span style="font-size: 16px; line-height: 1.7; color: #8A8A8A;">Body copy sits at 16px with relaxed leading, always left-aligned — never justified.</span></div>
+      <div style="display: flex; align-items: baseline; gap: 24px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; width: 140px; flex-shrink: 0;">meta / 12 / mono</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A;">2022 — Present · GitHub Campus Expert</span></div>
+    </div>
+  </section>
+
+  <!-- Spacing & shape -->
+  <section style="margin-bottom: 80px;">
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; font-weight: 500; margin: 0 0 24px 0;">04 — Spacing &amp; shape</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-size: 14px; color: #8A8A8A; margin: 0 0 20px 0;">8px base scale — 8 · 16 · 24 · 40 · 64 · 120</p>
+        <div style="display: flex; align-items: flex-end; gap: 12px;">
+          <div style="width: 8px; height: 8px; background: #F2F2F2;"></div>
+          <div style="width: 16px; height: 16px; background: #C9C9C9;"></div>
+          <div style="width: 24px; height: 24px; background: #8A8A8A;"></div>
+          <div style="width: 40px; height: 40px; background: #555555;"></div>
+          <div style="width: 64px; height: 64px; background: #333333;"></div>
+        </div>
+      </div>
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-size: 14px; color: #8A8A8A; margin: 0 0 20px 0;">Radius: 6px controls · 12px cards · hairline 1px borders</p>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <div style="width: 72px; height: 40px; border: 1px solid #555555; border-radius: 6px;"></div>
+          <div style="width: 96px; height: 64px; border: 1px solid #555555; border-radius: 12px;"></div>
+          <div style="flex: 1; height: 1px; background: #232323;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section>
+    <h2 style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A8A8A; font-weight: 500; margin: 0 0 24px 0;">05 — Components</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+
+      <!-- Buttons & links -->
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 0 0 20px 0;">BUTTONS &amp; LINKS</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <a style="display: inline-flex; align-items: center; background: #F2F2F2; color: #0A0A0A; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 6px; cursor: pointer;" style-hover="background: #FFFFFF;">Get in touch</a>
+          <a style="display: inline-flex; align-items: center; border: 1px solid #333333; color: #F2F2F2; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 6px; cursor: pointer;" style-hover="border-color: #F2F2F2;">View résumé</a>
+          <a style="font-size: 14px; color: #8A8A8A; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;" style-hover="color: #F2F2F2;">Inline link ↗</a>
+        </div>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 32px 0 20px 0;">NAV LINK STATES</p>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 32px; height: 1px; background: #F2F2F2;"></div><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #F2F2F2;">Active section</span></div>
+          <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 16px; height: 1px; background: #555555;"></div><span style="font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #555555;">Inactive section</span></div>
+        </div>
+      </div>
+
+      <!-- Tags & theme toggle -->
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 0 0 20px 0;">TAGS</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 4px 12px;">Astro</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 4px 12px;">React</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 4px 12px;">Tailwind</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 4px 12px;">SEO</span>
+        </div>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 32px 0 20px 0;">THEME TOGGLE</p>
+        <div style="display: inline-flex; border: 1px solid #333333; border-radius: 999px; padding: 3px;">
+          <span style="font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: #F2F2F2; color: #0A0A0A;">Dark</span>
+          <span style="font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: #8A8A8A; cursor: pointer;">Light</span>
+        </div>
+      </div>
+
+      <!-- Project row -->
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px; grid-column: span 2;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 0 0 20px 0;">PROJECT ROW — list layouts</p>
+        <div style="display: flex; gap: 24px; align-items: flex-start; border-radius: 12px; padding: 20px; cursor: pointer;" style-hover="background: #141414;">
+          <img src="img/projects/dscsticdo-website.png" alt="GDSC STI CDO website" style="width: 160px; border-radius: 6px; border: 1px solid #232323; display: block;">
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+              <h3 style="font-size: 18px; font-weight: 600; margin: 0;">GDSC STI CDO Website <span style="color: #8A8A8A;">↗</span></h3>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555;">2022</span>
+            </div>
+            <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 8px 0 12px 0;">Landing page for the Google Developer Student Clubs chapter at STI College CDO.</p>
+            <div style="display: flex; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 3px 10px;">HTML/CSS</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C9C9C9; border: 1px solid #333333; border-radius: 999px; padding: 3px 10px;">Community</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project card -->
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 0 0 20px 0;">PROJECT CARD — grid layouts</p>
+        <div style="max-width: 320px; border: 1px solid #232323; border-radius: 12px; overflow: hidden; cursor: pointer;" style-hover="border-color: #555555;">
+          <img src="img/projects/panaghiusa-website.png" alt="Panaghiusa website" style="width: 100%; display: block; border-bottom: 1px solid #232323;">
+          <div style="padding: 20px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Panaghiusa</h3>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555;">2022</span>
+            </div>
+            <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 8px 0 0 0;">Google Solution Challenge 2022 project landing page.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience item -->
+      <div style="border: 1px solid #232323; border-radius: 12px; padding: 32px;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555555; margin: 0 0 20px 0;">EXPERIENCE ITEM</p>
+        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 20px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #555555; padding-top: 4px;">2022 — Now</span>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0;">GitHub Campus Expert</h3>
+            <p style="font-size: 14px; color: #8A8A8A; line-height: 1.6; margin: 6px 0 0 0;">Leading workshops on AI coding tools, git, and GitHub for students and professionals.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+</x-dc>
+</body>
+</html>
