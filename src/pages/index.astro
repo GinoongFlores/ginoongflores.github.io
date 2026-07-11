@@ -1,10 +1,19 @@
 ---
-import { stack, projects, experience, achievements, gallery, socials } from "../data.js";
+import {
+	stack,
+	projects,
+	experience,
+	achievements,
+	gallery,
+	socials,
+} from "../data.js";
 
 // dev.to writing — fetched at build time. Fail soft to an empty list.
 let posts = [];
 try {
-	const res = await fetch("https://dev.to/api/articles?username=ginoongflores&per_page=4");
+	const res = await fetch(
+		"https://dev.to/api/articles?username=ginoongflores&per_page=4",
+	);
 	if (res.ok) posts = await res.json();
 } catch {
 	// offline build / API down — section just renders empty
@@ -31,7 +40,10 @@ const NAV = [
 			name="description"
 			content="Christian Paul Flores builds websites and student tech communities. BSIT graduate, GDSC lead, and GitHub Campus Expert based in Cagayan de Oro, Philippines."
 		/>
-		<meta name="google-site-verification" content="v7Prt_KT36XWR7u2SFvrCCLq312iF-Tgpz3AFHm1wzI" />
+		<meta
+			name="google-site-verification"
+			content="v7Prt_KT36XWR7u2SFvrCCLq312iF-Tgpz3AFHm1wzI"
+		/>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,24 +55,49 @@ const NAV = [
 		<!-- No JS: drop the deck and let every slide scroll normally -->
 		<noscript>
 			<style>
-				html, body { overflow: auto !important; height: auto !important; }
-				.deck, .track { position: static !important; height: auto !important; overflow: visible !important; }
-				[data-slide] { position: static !important; opacity: 1 !important; visibility: visible !important; transform: none !important; min-height: auto !important; }
-				.progress { display: none !important; }
+				html,
+				body {
+					overflow: auto !important;
+					height: auto !important;
+				}
+				.deck,
+				.track {
+					position: static !important;
+					height: auto !important;
+					overflow: visible !important;
+				}
+				[data-slide] {
+					position: static !important;
+					opacity: 1 !important;
+					visibility: visible !important;
+					transform: none !important;
+					min-height: auto !important;
+				}
+				.progress {
+					display: none !important;
+				}
 			</style>
 		</noscript>
 
 		<!-- Set theme before paint to avoid a flash of the wrong mode -->
 		<script is:inline>
-			if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light");
+			if (localStorage.getItem("theme") === "light")
+				document.documentElement.classList.add("light");
 		</script>
 
 		<!-- Microsoft Clarity -->
 		<script is:inline type="text/javascript">
 			(function (c, l, a, r, i, t, y) {
-				c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-				t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-				y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+				c[a] =
+					c[a] ||
+					function () {
+						(c[a].q = c[a].q || []).push(arguments);
+					};
+				t = l.createElement(r);
+				t.async = 1;
+				t.src = "https://www.clarity.ms/tag/" + i;
+				y = l.getElementsByTagName(r)[0];
+				y.parentNode.insertBefore(t, y);
 			})(window, document, "clarity", "script", "kcafupxg0x");
 		</script>
 	</head>
@@ -73,163 +110,241 @@ const NAV = [
 		<nav>
 			<span class="brand" data-go="0">@ginoongflores</span>
 			<div class="nav-links">
-				{NAV.map((n) => <span class="nav-link" data-go={n.i}>{n.label}</span>)}
-				<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">☾</button>
+				{
+					NAV.map((n) => (
+						<span class="nav-link" data-go={n.i}>
+							{n.label}
+						</span>
+					))
+				}
+				<button
+					class="theme-toggle"
+					id="themeToggle"
+					type="button"
+					aria-label="Toggle color theme">☾</button
+				>
 			</div>
 		</nav>
 
 		<!-- Deck: a transform-driven slide track, no native scrolling -->
 		<div class="deck">
-		<div class="track" id="track">
-			<!-- 0: Intro -->
-			<section data-slide>
-				<div class="slide-inner intro">
-					<div class="intro-head">
-						<img src="/img/profiles/dp.jpg" alt="Christian Paul Flores" class="avatar" />
-						<div>
-							<p class="meta">Cagayan de Oro, Philippines</p>
-							<p class="role">Web Developer&nbsp;|&nbsp;Community Leader&nbsp;|&nbsp;Aspiring PM</p>
+			<div class="track" id="track">
+				<!-- 0: Intro -->
+				<section data-slide>
+					<div class="slide-inner intro">
+						<div class="intro-head">
+							<img
+								src="/img/profiles/dp.jpg"
+								alt="Christian Paul Flores"
+								class="avatar"
+							/>
+							<div>
+								<p class="meta">Cagayan de Oro, Philippines</p>
+								<p class="role">
+									Web Developer&nbsp;|&nbsp;Community
+									Leader&nbsp;|&nbsp;Aspiring PM
+								</p>
+							</div>
+						</div>
+						<h1 class="hero-title">
+							Christian Paul Flores builds websites and student tech
+							communities.
+						</h1>
+						<p class="lead">
+							BSIT graduate with three years across web development and student
+							leadership — from static sites in college to leading the GDSC
+							chapter and serving as a GitHub Campus Expert.
+						</p>
+						<div class="cta-row">
+							<a href={`mailto:${socials.email}`} class="btn btn-solid"
+								>Get in touch</a
+							>
+							<a
+								href={socials.linkedin}
+								target="_blank"
+								rel="noopener"
+								class="btn btn-ghost">LinkedIn ↗</a
+							>
+						</div>
+						<p class="hint">scroll to explore →</p>
+					</div>
+				</section>
+
+				<!-- 1: Tech Stack -->
+				<section data-slide>
+					<div class="slide-inner">
+						<h2 class="section-label">01 — Tech stack</h2>
+						<div class="stack">
+							{
+								stack.map((g) => (
+									<div>
+										<h3 class="sub">{g.group}</h3>
+										<div class="tags">
+											{g.items.map((t) => (
+												<span class="tag">{t}</span>
+											))}
+										</div>
+									</div>
+								))
+							}
 						</div>
 					</div>
-					<h1 class="hero-title">Christian Paul Flores builds websites and student tech communities.</h1>
-					<p class="lead">
-						BSIT graduate with three years across web development and student leadership — from static
-						sites in college to leading the GDSC chapter and serving as a GitHub Campus Expert.
-					</p>
-					<div class="cta-row">
-						<a href={`mailto:${socials.email}`} class="btn btn-solid">Get in touch</a>
-						<a href={socials.linkedin} target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-					</div>
-					<p class="hint">scroll to explore →</p>
-				</div>
-			</section>
+				</section>
 
-			<!-- 1: Tech Stack -->
-			<section data-slide>
-				<div class="slide-inner">
-					<h2 class="section-label">01 — Tech stack</h2>
-					<div class="stack">
-						{stack.map((g) => (
-							<div>
-								<h3 class="sub">{g.group}</h3>
-								<div class="tags">
-									{g.items.map((t) => <span class="tag">{t}</span>)}
-								</div>
-							</div>
-						))}
+				<!-- 2: Projects -->
+				<section data-slide>
+					<div class="slide-inner wide">
+						<h2 class="section-label">02 — Selected work</h2>
+						<div class="list">
+							{
+								projects.map((p, idx) => (
+									<a
+										class="project-row"
+										href={p.link}
+										target="_blank"
+										rel="noopener"
+									>
+										<span class="row-num">
+											{String(idx + 1).padStart(2, "0")}
+										</span>
+										<div>
+											<h3 class="row-title">{p.title}</h3>
+											<p class="row-meta">{p.meta}</p>
+										</div>
+										<img src={p.img} alt={p.alt} class="row-thumb" />
+										<span class="arrow">↗</span>
+									</a>
+								))
+							}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- 2: Projects -->
-			<section data-slide>
-				<div class="slide-inner wide">
-					<h2 class="section-label">02 — Selected work</h2>
-					<div class="list">
-						{projects.map((p, idx) => (
-							<a class="project-row" href={p.link} target="_blank" rel="noopener">
-								<span class="row-num">{String(idx + 1).padStart(2, "0")}</span>
-								<div>
-									<h3 class="row-title">{p.title}</h3>
-									<p class="row-meta">{p.meta}</p>
-								</div>
-								<img src={p.img} alt={p.alt} class="row-thumb" />
-								<span class="arrow">↗</span>
-							</a>
-						))}
+				<!-- 3: Experience -->
+				<section data-slide>
+					<div class="slide-inner wide">
+						<h2 class="section-label">03 — Experience</h2>
+						<div class="list">
+							{
+								experience.map((e) => (
+									<div class="exp-row">
+										<div class="exp-period">
+											<span class="meta">{e.period}</span>
+											{e.now && <span class="now-badge">NOW</span>}
+										</div>
+										<div>
+											<h3 class="row-title big">{e.title}</h3>
+											<ul class="bullets">
+												{e.points.map((pt) => (
+													<li>{pt}</li>
+												))}
+											</ul>
+										</div>
+									</div>
+								))
+							}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- 3: Experience -->
-			<section data-slide>
-				<div class="slide-inner wide">
-					<h2 class="section-label">03 — Experience</h2>
-					<div class="list">
-						{experience.map((e) => (
-							<div class="exp-row">
-								<div class="exp-period">
-									<span class="meta">{e.period}</span>
-									{e.now && <span class="now-badge">NOW</span>}
-								</div>
-								<div>
-									<h3 class="row-title big">{e.title}</h3>
-									<ul class="bullets">
-										{e.points.map((pt) => <li>{pt}</li>)}
-									</ul>
-								</div>
-							</div>
-						))}
+				<!-- 4: Achievements -->
+				<section data-slide>
+					<div class="slide-inner wide">
+						<h2 class="section-label">04 — Achievements</h2>
+						<div class="list">
+							{
+								achievements.map((a, idx) => (
+									<div class="ach-row">
+										<span class="row-num">
+											{String(idx + 1).padStart(2, "0")}
+										</span>
+										<div>
+											<h3 class="row-title">{a.title}</h3>
+											<p class="row-meta">{a.desc}</p>
+										</div>
+									</div>
+								))
+							}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- 4: Achievements -->
-			<section data-slide>
-				<div class="slide-inner wide">
-					<h2 class="section-label">04 — Achievements</h2>
-					<div class="list">
-						{achievements.map((a, idx) => (
-							<div class="ach-row">
-								<span class="row-num">{String(idx + 1).padStart(2, "0")}</span>
-								<div>
-									<h3 class="row-title">{a.title}</h3>
-									<p class="row-meta">{a.desc}</p>
-								</div>
-							</div>
-						))}
+				<!-- 5: Gallery -->
+				<section data-slide>
+					<div class="slide-inner wide">
+						<h2 class="section-label">05 — Gallery</h2>
+						<div class="gallery">
+							{gallery.map((g) => <img src={g.img} alt={g.alt} />)}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- 5: Gallery -->
-			<section data-slide>
-				<div class="slide-inner wide">
-					<h2 class="section-label">05 — Gallery</h2>
-					<div class="gallery">
-						{gallery.map((g) => <img src={g.img} alt={g.alt} />)}
+				<!-- 6: Writing -->
+				<section data-slide>
+					<div class="slide-inner wide">
+						<div class="writing-head">
+							<h2 class="section-label">06 — Writing</h2>
+							<a
+								href={socials.devto}
+								target="_blank"
+								rel="noopener"
+								class="inline-link">dev.to profile ↗</a
+							>
+						</div>
+						<div class="list">
+							{
+								posts.length === 0 && (
+									<p class="row-meta" style="padding:22px 0;">
+										Posts load from dev.to at build time — nothing published
+										yet.
+									</p>
+								)
+							}
+							{
+								posts.map((post) => (
+									<a
+										class="writing-row"
+										href={post.url}
+										target="_blank"
+										rel="noopener"
+									>
+										<div>
+											<h3 class="row-title">{post.title}</h3>
+											<p class="row-meta">{post.description}</p>
+										</div>
+										<span class="meta nowrap">
+											{post.reading_time_minutes} min read
+										</span>
+									</a>
+								))
+							}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<!-- 6: Writing -->
-			<section data-slide>
-				<div class="slide-inner wide">
-					<div class="writing-head">
-						<h2 class="section-label">06 — Writing</h2>
-						<a href={socials.devto} target="_blank" rel="noopener" class="inline-link">dev.to profile ↗</a>
+				<!-- 7: Contact -->
+				<section data-slide>
+					<div class="slide-inner contact">
+						<h2 class="section-label">07 — Contact</h2>
+						<h2 class="contact-email">
+							<a href={`mailto:${socials.email}`}>{socials.email}</a>
+						</h2>
+						<div class="socials">
+							<a href={socials.github} target="_blank" rel="noopener">GitHub</a>
+							<a href={socials.linkedin} target="_blank" rel="noopener"
+								>LinkedIn</a
+							>
+							<a href={socials.instagram} target="_blank" rel="noopener"
+								>Instagram</a
+							>
+						</div>
+						<p class="copyright">
+							© 2026 Christian Paul H. Flores · Cagayan de Oro, PH · Built with
+							Astro
+						</p>
 					</div>
-					<div class="list">
-						{posts.length === 0 && (
-							<p class="row-meta" style="padding:22px 0;">Posts load from dev.to at build time — nothing published yet.</p>
-						)}
-						{posts.map((post) => (
-							<a class="writing-row" href={post.url} target="_blank" rel="noopener">
-								<div>
-									<h3 class="row-title">{post.title}</h3>
-									<p class="row-meta">{post.description}</p>
-								</div>
-								<span class="meta nowrap">{post.reading_time_minutes} min read</span>
-							</a>
-						))}
-					</div>
-				</div>
-			</section>
-
-			<!-- 7: Contact -->
-			<section data-slide>
-				<div class="slide-inner contact">
-					<h2 class="section-label">07 — Contact</h2>
-					<h2 class="contact-email"><a href={`mailto:${socials.email}`}>{socials.email}</a></h2>
-					<div class="socials">
-						<a href={socials.github} target="_blank" rel="noopener">GitHub</a>
-						<a href={socials.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-						<a href={socials.instagram} target="_blank" rel="noopener">Instagram</a>
-					</div>
-					<p class="copyright">© 2026 Christian Paul H. Flores · Cagayan de Oro, PH · Built with Astro</p>
-				</div>
-			</section>
-		</div>
+				</section>
+			</div>
 		</div>
 
 		<script>
@@ -243,7 +358,9 @@ const NAV = [
 
 			function paint() {
 				slides.forEach((s, n) => s.classList.toggle("active", n === index));
-				navLinks.forEach((el) => el.classList.toggle("active", +el.dataset.go === index));
+				navLinks.forEach((el) =>
+					el.classList.toggle("active", +el.dataset.go === index),
+				);
 				progress.style.transform = `scaleX(${(index + 1) / SLIDE_COUNT})`;
 			}
 
@@ -284,8 +401,14 @@ const NAV = [
 
 			// keyboard
 			window.addEventListener("keydown", (e) => {
-				if (["ArrowRight", "ArrowDown", "PageDown"].includes(e.key)) { e.preventDefault(); nav(1); }
-				if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); nav(-1); }
+				if (["ArrowRight", "ArrowDown", "PageDown"].includes(e.key)) {
+					e.preventDefault();
+					nav(1);
+				}
+				if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) {
+					e.preventDefault();
+					nav(-1);
+				}
 			});
 
 			// wheel / touchpad — advance one slide, but let a tall slide scroll internally first
@@ -295,13 +418,16 @@ const NAV = [
 					const slide = slides[index];
 					const overflowing = slide.scrollHeight - slide.clientHeight > 2;
 					if (overflowing && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-						const down = e.deltaY > 0 && slide.scrollTop + slide.clientHeight < slide.scrollHeight - 2;
+						const down =
+							e.deltaY > 0 &&
+							slide.scrollTop + slide.clientHeight < slide.scrollHeight - 2;
 						const up = e.deltaY < 0 && slide.scrollTop > 2;
 						if (down || up) return; // native internal scroll
 					}
 					e.preventDefault();
 					if (locked) return;
-					const d = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+					const d =
+						Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
 					if (Math.abs(d) < 6) return;
 					nav(d > 0 ? 1 : -1);
 				},
@@ -309,163 +435,475 @@ const NAV = [
 			);
 
 			// touch swipe (mobile) — dominant axis decides; down/right = next
-			let sx = 0, sy = 0;
-			track.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
-			track.addEventListener("touchend", (e) => {
-				const dx = e.changedTouches[0].clientX - sx;
-				const dy = e.changedTouches[0].clientY - sy;
-				if (Math.max(Math.abs(dx), Math.abs(dy)) < 45) return;
-				const d = Math.abs(dx) >= Math.abs(dy) ? -dx : -dy; // swipe left/up = next
-				nav(d > 0 ? 1 : -1);
-			}, { passive: true });
+			let sx = 0,
+				sy = 0;
+			track.addEventListener(
+				"touchstart",
+				(e) => {
+					sx = e.touches[0].clientX;
+					sy = e.touches[0].clientY;
+				},
+				{ passive: true },
+			);
+			track.addEventListener(
+				"touchend",
+				(e) => {
+					const dx = e.changedTouches[0].clientX - sx;
+					const dy = e.changedTouches[0].clientY - sy;
+					if (Math.max(Math.abs(dx), Math.abs(dy)) < 45) return;
+					const d = Math.abs(dx) >= Math.abs(dy) ? -dx : -dy; // swipe left/up = next
+					nav(d > 0 ? 1 : -1);
+				},
+				{ passive: true },
+			);
 		</script>
 
 		<style is:global>
 			:root {
-				--bg: #0a0a0a; --surface: #141414; --border: #232323;
-				--fg: #f2f2f2; --muted: #8a8a8a; --faint: #7a7a7a;
+				--bg: #0a0a0a;
+				--surface: #141414;
+				--border: #232323;
+				--fg: #f2f2f2;
+				--muted: #8a8a8a;
+				--faint: #7a7a7a;
 			}
 			:root.light {
-				--bg: #fafafa; --surface: #ffffff; --border: #e5e5e5;
-				--fg: #111111; --muted: #6b6b6b; --faint: #767676;
+				--bg: #fafafa;
+				--surface: #ffffff;
+				--border: #e5e5e5;
+				--fg: #111111;
+				--muted: #6b6b6b;
+				--faint: #767676;
 			}
-			* { box-sizing: border-box; }
-			html, body {
-				margin: 0; height: 100%; overflow: hidden;
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+				overflow: hidden;
 				font-family: "Instrument Sans", sans-serif;
-				background: var(--bg); color: var(--fg);
+				background: var(--bg);
+				color: var(--fg);
 				scrollbar-width: none; /* Firefox */
 			}
-			::-webkit-scrollbar { width: 0; height: 0; } /* Chrome/Safari */
-			a { color: inherit; text-decoration: none; }
-			.meta {
-				font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.1em;
-				text-transform: uppercase; color: var(--faint); margin: 0;
+			::-webkit-scrollbar {
+				width: 0;
+				height: 0;
+			} /* Chrome/Safari */
+			a {
+				color: inherit;
+				text-decoration: none;
 			}
-			.nowrap { white-space: nowrap; flex-shrink: 0; }
+			.meta {
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 12px;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				color: var(--faint);
+				margin: 0;
+			}
+			.nowrap {
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
 
 			/* Keyboard focus */
-			a:focus-visible, button:focus-visible, [data-go]:focus-visible {
-				outline: 2px solid var(--fg); outline-offset: 3px; border-radius: 4px;
+			a:focus-visible,
+			button:focus-visible,
+			[data-go]:focus-visible {
+				outline: 2px solid var(--fg);
+				outline-offset: 3px;
+				border-radius: 4px;
 			}
 
 			/* Slide progress line */
 			.progress {
-				position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 30;
-				background: var(--fg); transform: scaleX(0); transform-origin: left;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				z-index: 30;
+				background: var(--fg);
+				transform: scaleX(0);
+				transform-origin: left;
 				transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 			}
 
 			/* Nav */
 			nav {
-				position: fixed; top: 0; left: 0; right: 0; z-index: 20;
-				display: flex; justify-content: space-between; align-items: center;
-				padding: 24px 40px; background: linear-gradient(var(--bg), transparent);
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 20;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 24px 40px;
+				background: linear-gradient(var(--bg), transparent);
 			}
-			.brand { font-size: 15px; font-weight: 600; cursor: pointer; }
-			.nav-links { display: flex; align-items: center; gap: 24px; }
-			.nav-link { font-size: 13px; font-weight: 600; color: var(--faint); cursor: pointer; transition: color 0.2s; }
-			.nav-link:hover { color: var(--muted); }
-			.nav-link.active { color: var(--fg); }
+			.brand {
+				font-size: 15px;
+				font-weight: 600;
+				cursor: pointer;
+			}
+			.nav-links {
+				display: flex;
+				align-items: center;
+				gap: 24px;
+			}
+			.nav-link {
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--faint);
+				cursor: pointer;
+				transition: color 0.2s;
+			}
+			.nav-link:hover {
+				color: var(--muted);
+			}
+			.nav-link.active {
+				color: var(--fg);
+			}
 			.theme-toggle {
-				display: inline-flex; align-items: center; justify-content: center;
-				width: 28px; height: 28px; padding: 0; font-size: 15px; line-height: 1;
-				background: none; border: 0; color: var(--muted); cursor: pointer; transition: color 0.2s;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 28px;
+				height: 28px;
+				padding: 0;
+				font-size: 15px;
+				line-height: 1;
+				background: none;
+				border: 0;
+				color: var(--muted);
+				cursor: pointer;
+				transition: color 0.2s;
 			}
-			.theme-toggle:hover { color: var(--fg); }
+			.theme-toggle:hover {
+				color: var(--fg);
+			}
 
 			/* Deck: slides are stacked in place; only the active one shows (fade + slide-in) */
-			.deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
-			.track { position: absolute; inset: 0; }
+			.deck {
+				position: relative;
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+			}
+			.track {
+				position: absolute;
+				inset: 0;
+			}
 			[data-slide] {
-				position: absolute; inset: 0;
-				overflow-y: auto; overflow-x: hidden;
-				display: flex; align-items: safe center; padding-top: 88px;
+				position: absolute;
+				inset: 0;
+				overflow-y: auto;
+				overflow-x: hidden;
+				display: flex;
+				align-items: safe center;
+				padding-top: 88px;
 				scrollbar-width: none;
-				opacity: 0; visibility: hidden; transform: translateX(36px);
-				transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s linear 0.45s;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateX(36px);
+				transition:
+					opacity 0.45s ease,
+					transform 0.45s cubic-bezier(0.65, 0, 0.35, 1),
+					visibility 0s linear 0.45s;
 			}
 			[data-slide].active {
-				opacity: 1; visibility: visible; transform: none;
-				transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+				opacity: 1;
+				visibility: visible;
+				transform: none;
+				transition:
+					opacity 0.45s ease,
+					transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 			}
-			[data-slide]::-webkit-scrollbar { width: 0; }
-			.slide-inner { max-width: 620px; margin: 0 auto; padding: 96px 40px; width: 100%; }
-			.slide-inner.wide { max-width: 640px; }
+			[data-slide]::-webkit-scrollbar {
+				width: 0;
+			}
+			.slide-inner {
+				max-width: 620px;
+				margin: 0 auto;
+				padding: 96px 40px;
+				width: 100%;
+			}
+			.slide-inner.wide {
+				max-width: 640px;
+			}
 			.section-label {
-				font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.12em;
-				text-transform: uppercase; color: var(--faint); margin: 0 0 24px 0;
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 12px;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--faint);
+				margin: 0 0 24px 0;
 			}
 
 			/* Intro */
-			.intro-head { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
-			.avatar { width: 80px; height: 80px; object-fit: cover; border-radius: 999px; display: block; }
-			.role { font-size: 15px; font-weight: 500; margin: 6px 0 0 0; }
-			.hero-title { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
-			.lead { font-size: 17px; color: var(--muted); line-height: 1.7; margin: 24px 0 0 0; }
-			.cta-row { display: flex; gap: 12px; margin-top: 32px; }
-			.btn { display: inline-flex; align-items: center; font-size: 14px; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
-			.btn-solid { background: var(--fg); color: var(--bg); font-weight: 600; }
-			.btn-ghost { border: 1px solid var(--border); color: var(--fg); font-weight: 500; }
-			.hint { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--faint); margin: 56px 0 0 0; }
+			.intro-head {
+				display: flex;
+				align-items: center;
+				gap: 24px;
+				margin-bottom: 32px;
+			}
+			.avatar {
+				width: 80px;
+				height: 80px;
+				object-fit: cover;
+				border-radius: 999px;
+				display: block;
+			}
+			.role {
+				font-size: 15px;
+				font-weight: 500;
+				margin: 6px 0 0 0;
+			}
+			.hero-title {
+				font-size: 44px;
+				font-weight: 600;
+				letter-spacing: -0.02em;
+				line-height: 1.15;
+				margin: 0;
+			}
+			.lead {
+				font-size: 17px;
+				color: var(--muted);
+				line-height: 1.7;
+				margin: 24px 0 0 0;
+			}
+			.cta-row {
+				display: flex;
+				gap: 12px;
+				margin-top: 32px;
+			}
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				font-size: 14px;
+				padding: 10px 20px;
+				border-radius: 6px;
+				cursor: pointer;
+			}
+			.btn-solid {
+				background: var(--fg);
+				color: var(--bg);
+				font-weight: 600;
+			}
+			.btn-ghost {
+				border: 1px solid var(--border);
+				color: var(--fg);
+				font-weight: 500;
+			}
+			.hint {
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 12px;
+				color: var(--faint);
+				margin: 56px 0 0 0;
+			}
 
 			/* Stack */
-			.stack { display: flex; flex-direction: column; gap: 32px; }
-			.sub { font-size: 16px; font-weight: 600; margin: 0 0 14px 0; }
-			.tags { display: flex; flex-wrap: wrap; gap: 8px; }
-			.tag { font-family: "IBM Plex Mono", monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 5px 14px; }
+			.stack {
+				display: flex;
+				flex-direction: column;
+				gap: 32px;
+			}
+			.sub {
+				font-size: 16px;
+				font-weight: 600;
+				margin: 0 0 14px 0;
+			}
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+			.tag {
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 12px;
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				padding: 5px 14px;
+			}
 
 			/* Lists shared */
-			.list { border-top: 1px solid var(--border); }
-			.row-num { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--faint); }
-			.row-title { font-size: 16px; font-weight: 600; margin: 0; }
-			.row-title.big { font-size: 17px; }
-			.row-meta { font-size: 13px; color: var(--muted); margin: 4px 0 0 0; }
-			.arrow { color: var(--faint); }
+			.list {
+				border-top: 1px solid var(--border);
+			}
+			.row-num {
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 12px;
+				color: var(--faint);
+			}
+			.row-title {
+				font-size: 16px;
+				font-weight: 600;
+				margin: 0;
+			}
+			.row-title.big {
+				font-size: 17px;
+			}
+			.row-meta {
+				font-size: 13px;
+				color: var(--muted);
+				margin: 4px 0 0 0;
+			}
+			.arrow {
+				color: var(--faint);
+			}
 
 			/* Project rows */
 			.project-row {
-				display: grid; grid-template-columns: 32px 1fr 140px 20px; gap: 20px; align-items: center;
-				padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+				display: grid;
+				grid-template-columns: 32px 1fr 140px 20px;
+				gap: 20px;
+				align-items: center;
+				padding: 20px 0;
+				border-bottom: 1px solid var(--border);
+				cursor: pointer;
 			}
-			.row-thumb { width: 140px; border-radius: 6px; border: 1px solid var(--border); display: block; }
+			.row-thumb {
+				width: 140px;
+				border-radius: 6px;
+				border: 1px solid var(--border);
+				display: block;
+			}
 
 			/* Experience */
-			.exp-row { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--border); }
-			.exp-period { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-			.now-badge { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; background: var(--fg); color: var(--bg); border-radius: 4px; padding: 2px 8px; }
-			.bullets { font-size: 14px; color: var(--muted); line-height: 1.7; margin: 10px 0 0 0; padding-left: 18px; }
+			.exp-row {
+				display: grid;
+				grid-template-columns: 130px 1fr;
+				gap: 20px;
+				padding: 26px 0;
+				border-bottom: 1px solid var(--border);
+			}
+			.exp-period {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 8px;
+			}
+			.now-badge {
+				font-family: "IBM Plex Mono", monospace;
+				font-size: 10px;
+				font-weight: 500;
+				background: var(--fg);
+				color: var(--bg);
+				border-radius: 4px;
+				padding: 2px 8px;
+			}
+			.bullets {
+				font-size: 14px;
+				color: var(--muted);
+				line-height: 1.7;
+				margin: 10px 0 0 0;
+				padding-left: 18px;
+			}
 
 			/* Achievements */
-			.ach-row { display: grid; grid-template-columns: 32px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+			.ach-row {
+				display: grid;
+				grid-template-columns: 32px 1fr;
+				gap: 20px;
+				padding: 22px 0;
+				border-bottom: 1px solid var(--border);
+			}
 
 			/* Gallery */
-			.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-			.gallery img { width: 100%; height: 190px; object-fit: cover; border-radius: 8px; display: block; }
+			.gallery {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 14px;
+			}
+			.gallery img {
+				width: 100%;
+				height: 190px;
+				object-fit: cover;
+				border-radius: 8px;
+				display: block;
+			}
 
 			/* Writing */
-			.writing-head { display: flex; justify-content: space-between; align-items: baseline; }
-			.inline-link { font-size: 12px; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
-			.writing-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+			.writing-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+			.inline-link {
+				font-size: 12px;
+				color: var(--muted);
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+			.writing-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 20px;
+				padding: 22px 0;
+				border-bottom: 1px solid var(--border);
+				cursor: pointer;
+			}
 
 			/* Contact */
-			.slide-inner.contact { text-align: center; }
-			.contact-email { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
-			.socials { display: flex; justify-content: center; gap: 24px; margin-top: 32px; }
-			.socials a { font-size: 14px; color: var(--muted); }
-			.socials a:hover { color: var(--fg); }
-			.copyright { font-size: 13px; color: var(--faint); margin: 56px 0 0 0; }
+			.slide-inner.contact {
+				text-align: center;
+			}
+			.contact-email {
+				font-size: 40px;
+				font-weight: 600;
+				letter-spacing: -0.02em;
+				margin: 0;
+			}
+			.socials {
+				display: flex;
+				justify-content: center;
+				gap: 24px;
+				margin-top: 32px;
+			}
+			.socials a {
+				font-size: 14px;
+				color: var(--muted);
+			}
+			.socials a:hover {
+				color: var(--fg);
+			}
+			.copyright {
+				font-size: 13px;
+				color: var(--faint);
+				margin: 56px 0 0 0;
+			}
 
 			@media (prefers-reduced-motion: reduce) {
-				*, [data-slide], [data-slide].active, .progress { transition-duration: 0.01ms !important; }
+				*,
+				[data-slide],
+				[data-slide].active,
+				.progress {
+					transition-duration: 0.01ms !important;
+				}
 			}
 
 			@media (max-width: 720px) {
-				.nav-links { display: none; }
-				.slide-inner { padding-left: 24px; padding-right: 24px; }
-				.hero-title { font-size: 30px; }
-				.project-row { grid-template-columns: 24px 1fr 20px; }
-				.row-thumb { display: none; }
+				.nav-links {
+					display: none;
+				}
+				.slide-inner {
+					padding-left: 24px;
+					padding-right: 24px;
+				}
+				.hero-title {
+					font-size: 30px;
+				}
+				.project-row {
+					grid-template-columns: 24px 1fr 20px;
+				}
+				.row-thumb {
+					display: none;
+				}
 			}
 		</style>
 	</body>
