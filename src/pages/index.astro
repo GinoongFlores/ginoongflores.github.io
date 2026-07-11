@@ -19,7 +19,6 @@ const NAV = [
 	{ label: "Writing", i: 6 },
 	{ label: "Contact", i: 7 },
 ];
-const SLIDE_COUNT = 8;
 ---
 
 <!doctype html>
@@ -41,6 +40,16 @@ const SLIDE_COUNT = 8;
 			rel="stylesheet"
 		/>
 
+		<!-- No JS: drop the deck and let every slide scroll normally -->
+		<noscript>
+			<style>
+				html, body { overflow: auto !important; height: auto !important; }
+				.deck, .track { position: static !important; height: auto !important; overflow: visible !important; }
+				[data-slide] { position: static !important; opacity: 1 !important; visibility: visible !important; transform: none !important; min-height: auto !important; }
+				.progress { display: none !important; }
+			</style>
+		</noscript>
+
 		<!-- Set theme before paint to avoid a flash of the wrong mode -->
 		<script is:inline>
 			if (localStorage.getItem("theme") === "light") document.documentElement.classList.add("light");
@@ -57,15 +66,15 @@ const SLIDE_COUNT = 8;
 	</head>
 
 	<body>
+		<!-- Slide progress -->
+		<div class="progress" id="progress"></div>
+
 		<!-- Fixed nav -->
 		<nav>
 			<span class="brand" data-go="0">@ginoongflores</span>
 			<div class="nav-links">
 				{NAV.map((n) => <span class="nav-link" data-go={n.i}>{n.label}</span>)}
-				<div class="theme-toggle" id="themeToggle">
-					<span class="pill" data-mode="dark">Dark</span>
-					<span class="pill" data-mode="light">Light</span>
-				</div>
+				<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">☾</button>
 			</div>
 		</nav>
 
@@ -89,7 +98,7 @@ const SLIDE_COUNT = 8;
 					</p>
 					<div class="cta-row">
 						<a href={`mailto:${socials.email}`} class="btn btn-solid">Get in touch</a>
-						<a href="/resume.pdf" class="btn btn-ghost">Résumé ↓</a>
+						<a href={socials.linkedin} target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
 					</div>
 					<p class="hint">scroll to explore →</p>
 				</div>
@@ -98,7 +107,7 @@ const SLIDE_COUNT = 8;
 			<!-- 1: Tech Stack -->
 			<section data-slide>
 				<div class="slide-inner">
-					<p class="section-label">01 — Tech stack</p>
+					<h2 class="section-label">01 — Tech stack</h2>
 					<div class="stack">
 						{stack.map((g) => (
 							<div>
@@ -115,7 +124,7 @@ const SLIDE_COUNT = 8;
 			<!-- 2: Projects -->
 			<section data-slide>
 				<div class="slide-inner wide">
-					<p class="section-label">02 — Selected work</p>
+					<h2 class="section-label">02 — Selected work</h2>
 					<div class="list">
 						{projects.map((p, idx) => (
 							<a class="project-row" href={p.link} target="_blank" rel="noopener">
@@ -135,7 +144,7 @@ const SLIDE_COUNT = 8;
 			<!-- 3: Experience -->
 			<section data-slide>
 				<div class="slide-inner wide">
-					<p class="section-label">03 — Experience</p>
+					<h2 class="section-label">03 — Experience</h2>
 					<div class="list">
 						{experience.map((e) => (
 							<div class="exp-row">
@@ -158,7 +167,7 @@ const SLIDE_COUNT = 8;
 			<!-- 4: Achievements -->
 			<section data-slide>
 				<div class="slide-inner wide">
-					<p class="section-label">04 — Achievements</p>
+					<h2 class="section-label">04 — Achievements</h2>
 					<div class="list">
 						{achievements.map((a, idx) => (
 							<div class="ach-row">
@@ -176,7 +185,7 @@ const SLIDE_COUNT = 8;
 			<!-- 5: Gallery -->
 			<section data-slide>
 				<div class="slide-inner wide">
-					<p class="section-label">05 — Gallery</p>
+					<h2 class="section-label">05 — Gallery</h2>
 					<div class="gallery">
 						{gallery.map((g) => <img src={g.img} alt={g.alt} />)}
 					</div>
@@ -187,7 +196,7 @@ const SLIDE_COUNT = 8;
 			<section data-slide>
 				<div class="slide-inner wide">
 					<div class="writing-head">
-						<p class="section-label">06 — Writing</p>
+						<h2 class="section-label">06 — Writing</h2>
 						<a href={socials.devto} target="_blank" rel="noopener" class="inline-link">dev.to profile ↗</a>
 					</div>
 					<div class="list">
@@ -210,7 +219,7 @@ const SLIDE_COUNT = 8;
 			<!-- 7: Contact -->
 			<section data-slide>
 				<div class="slide-inner contact">
-					<p class="section-label">07 — Contact</p>
+					<h2 class="section-label">07 — Contact</h2>
 					<h2 class="contact-email"><a href={`mailto:${socials.email}`}>{socials.email}</a></h2>
 					<div class="socials">
 						<a href={socials.github} target="_blank" rel="noopener">GitHub</a>
@@ -223,24 +232,19 @@ const SLIDE_COUNT = 8;
 		</div>
 		</div>
 
-		<!-- Dot indicator -->
-		<div class="dots" id="dots">
-			{Array.from({ length: SLIDE_COUNT }).map((_, i) => <span class="dot" data-go={i}></span>)}
-		</div>
-
 		<script>
 			const track = document.getElementById("track");
 			const slides = [...track.children];
 			const SLIDE_COUNT = slides.length;
 			const navLinks = [...document.querySelectorAll(".nav-link")];
-			const dots = [...document.querySelectorAll(".dot")];
+			const progress = document.getElementById("progress");
 			let index = 0;
 			let locked = false; // ignore input while a transition is running
 
 			function paint() {
 				slides.forEach((s, n) => s.classList.toggle("active", n === index));
 				navLinks.forEach((el) => el.classList.toggle("active", +el.dataset.go === index));
-				dots.forEach((el, n) => el.classList.toggle("active", n === index));
+				progress.style.transform = `scaleX(${(index + 1) / SLIDE_COUNT})`;
 			}
 
 			function go(i) {
@@ -269,9 +273,7 @@ const SLIDE_COUNT = 8;
 			const toggle = document.getElementById("themeToggle");
 			function paintToggle() {
 				const light = document.documentElement.classList.contains("light");
-				toggle.querySelectorAll(".pill").forEach((p) =>
-					p.classList.toggle("on", p.dataset.mode === (light ? "light" : "dark")),
-				);
+				toggle.textContent = light ? "☀" : "☾";
 			}
 			toggle.addEventListener("click", () => {
 				const light = document.documentElement.classList.toggle("light");
@@ -321,11 +323,11 @@ const SLIDE_COUNT = 8;
 		<style is:global>
 			:root {
 				--bg: #0a0a0a; --surface: #141414; --border: #232323;
-				--fg: #f2f2f2; --muted: #8a8a8a; --faint: #555555;
+				--fg: #f2f2f2; --muted: #8a8a8a; --faint: #7a7a7a;
 			}
 			:root.light {
 				--bg: #fafafa; --surface: #ffffff; --border: #e5e5e5;
-				--fg: #111111; --muted: #6b6b6b; --faint: #b3b3b3;
+				--fg: #111111; --muted: #6b6b6b; --faint: #767676;
 			}
 			* { box-sizing: border-box; }
 			html, body {
@@ -342,6 +344,18 @@ const SLIDE_COUNT = 8;
 			}
 			.nowrap { white-space: nowrap; flex-shrink: 0; }
 
+			/* Keyboard focus */
+			a:focus-visible, button:focus-visible, [data-go]:focus-visible {
+				outline: 2px solid var(--fg); outline-offset: 3px; border-radius: 4px;
+			}
+
+			/* Slide progress line */
+			.progress {
+				position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 30;
+				background: var(--fg); transform: scaleX(0); transform-origin: left;
+				transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+			}
+
 			/* Nav */
 			nav {
 				position: fixed; top: 0; left: 0; right: 0; z-index: 20;
@@ -354,11 +368,11 @@ const SLIDE_COUNT = 8;
 			.nav-link:hover { color: var(--muted); }
 			.nav-link.active { color: var(--fg); }
 			.theme-toggle {
-				display: inline-flex; border: 1px solid var(--border);
-				border-radius: 999px; padding: 2px; cursor: pointer;
+				display: inline-flex; align-items: center; justify-content: center;
+				width: 28px; height: 28px; padding: 0; font-size: 15px; line-height: 1;
+				background: none; border: 0; color: var(--muted); cursor: pointer; transition: color 0.2s;
 			}
-			.pill { font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: var(--muted); }
-			.pill.on { background: var(--fg); color: var(--bg); }
+			.theme-toggle:hover { color: var(--fg); }
 
 			/* Deck: slides are stacked in place; only the active one shows (fade + slide-in) */
 			.deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
@@ -442,14 +456,9 @@ const SLIDE_COUNT = 8;
 			.socials a:hover { color: var(--fg); }
 			.copyright { font-size: 13px; color: var(--faint); margin: 56px 0 0 0; }
 
-			/* Dots */
-			.dots {
-				position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 20;
-				display: flex; gap: 10px; background: var(--bg); padding: 8px 14px;
-				border-radius: 999px; border: 1px solid var(--border);
+			@media (prefers-reduced-motion: reduce) {
+				*, [data-slide], [data-slide].active, .progress { transition-duration: 0.01ms !important; }
 			}
-			.dot { width: 7px; height: 7px; border-radius: 999px; background: var(--border); cursor: pointer; display: block; transition: background 0.2s; }
-			.dot.active { background: var(--fg); }
 
 			@media (max-width: 720px) {
 				.nav-links { display: none; }

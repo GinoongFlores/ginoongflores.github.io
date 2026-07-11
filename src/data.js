@@ -83,7 +83,7 @@ export const gallery = [
 export const socials = {
 	email: "christian@evalics.com",
 	github: "https://github.com/ginoongflores",
-	linkedin: "https://www.linkedin.com/in/ginoongflores/",
+	linkedin: "https://www.linkedin.com/in/christian-paul-flores/",
 	instagram: "https://www.instagram.com/ginoongflores/",
 	devto: "https://dev.to/ginoongflores",
 };
