@@ -264,7 +264,7 @@ const NAV = [
 				setTimeout(() => (locked = false), 480); // matches CSS transition
 			}
 
-			// click nav / brand / dots — jump straight there
+			// click nav / brand - jump straight there
 			document.querySelectorAll("[data-go]").forEach((el) => {
 				el.addEventListener("click", () => go(+el.dataset.go));
 			});
