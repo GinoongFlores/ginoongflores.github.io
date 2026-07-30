@@ -2,8 +2,9 @@
 // Image paths are relative to /public.
 
 export const stack = [
-	{ group: "Web development", items: ["HTML/CSS", "JavaScript", "React", "Astro", "Tailwind CSS"] },
-	{ group: "Tools & analytics", items: ["Git / GitHub", "Google Analytics", "Microsoft Clarity", "Figma"] },
+	{ group: "Web development", items: ["React", "TypeScript", "Next.js", "Astro", "HTML/CSS", "Tailwind CSS"] },
+	{ group: "Growth & workflow", items: ["SEO", "AI workflows", "Project management", "Google Analytics", "Microsoft Clarity"] },
+	{ group: "Tools", items: ["Git / GitHub", "Figma"] },
 ];
 
 export const projects = [
@@ -39,37 +40,86 @@ export const projects = [
 
 export const experience = [
 	{
-		period: "2022 — Now",
+		period: "2026 — Now",
 		now: true,
+		title: "Web Specialist — Evalics",
+		points: [
+			"Build and ship web applications with React, TypeScript, and Next.js.",
+			"Drive SEO and AI-powered workflows to shorten delivery cycles.",
+		],
+	},
+	{
+		period: "2025 — Now",
+		now: true,
+		title: "IT Instructor — Xavier University, Ateneo de Cagayan",
+		points: [
+			"Teach web development and practical software engineering.",
+			"Moved from part-time to full-time and back across three terms.",
+		],
+	},
+	{
+		period: "2025",
+		now: false,
+		title: "Freelance Web Developer — Evalics",
+		points: ["Delivered client sites with Tailwind CSS and on-page SEO."],
+	},
+	{
+		period: "2024 — 2025",
+		now: false,
+		title: "Technical Project Coordinator — Shredder",
+		points: [
+			"Coordinated delivery of a skiing and snowboarding social platform.",
+			"Ran project management and manual testing across releases.",
+		],
+	},
+];
+
+// Volunteer and community roles — kept separate from paid work above.
+export const community = [
+	{
+		period: "2025 — Now",
+		now: true,
+		title: "Vice President — DevCon Cagayan de Oro",
+		points: [
+			"Program community events for local developers and professionals.",
+		],
+	},
+	{
+		period: "2023 — 2025",
+		now: false,
 		title: "GitHub Campus Expert",
 		points: [
-			"Lead workshops on AI coding tools, git, and GitHub.",
-			"Foster technological awareness across the regional student community.",
+			"Built inclusive spaces for students to learn skills and ship projects together.",
+			"Led workshops on AI coding tools, git, and GitHub.",
 		],
 	},
 	{
 		period: "2021 — 2022",
 		now: false,
-		title: "GDSC Lead — STI College CDO",
+		title: "Google Developer Student Clubs Lead",
 		points: [
-			"Organized and led tech events on TensorFlow, Flutter, and Android.",
-			"Managed an online hackathon during the COVID-19 pandemic.",
+			"Spoke on Google and emerging tech at online and onsite events.",
+			"Collaborated with GDSC PH leads and ran a fully-remote hackathon.",
 		],
 	},
 ];
 
 export const achievements = [
 	{
-		title: "GitHub Campus Expert — accepted 2022",
-		desc: "One of few Campus Experts in the Philippines.",
+		title: "GitHub Campus Expert",
+		desc: "1 of 250+ worldwide and the 5th in the Philippines.",
+	},
+	{
+		title: "CodeFest 2023 — Local & Cluster Champion, National Finalist",
+		desc: "STI College competitive programming team.",
+	},
+	{
+		title: "Plastic 3R Hacks PH — Finalist",
+		desc: "Co-built OroKalimpyo, lifting plastic waste recovery 4% in Cagayan de Oro.",
 	},
 	{
 		title: "Google Solution Challenge 2022 — Panaghiusa",
 		desc: "Built the landing page for our chapter's entry.",
-	},
-	{
-		title: "Online hackathon organizer — 2021",
-		desc: "Ran a fully-remote hackathon during the pandemic.",
 	},
 ];
 
@@ -81,9 +131,9 @@ export const gallery = [
 ];
 
 export const socials = {
-	email: "christian@evalics.com",
+	email: "ginoongflores@gmail.com",
 	github: "https://github.com/ginoongflores",
-	linkedin: "https://www.linkedin.com/in/ginoongflores/",
+	linkedin: "https://www.linkedin.com/in/christian-paul-flores/",
 	instagram: "https://www.instagram.com/ginoongflores/",
 	devto: "https://dev.to/ginoongflores",
 };
