@@ -303,8 +303,11 @@ const NAV = [
 					</div>
 				</section>
 
-				{/* Writing — off until dev.to has posts. Restore with the fetch above. */}
-				{/*
+				{
+					/* Writing — off until dev.to has posts. Restore with the fetch above. */
+				}
+				{
+					/*
 				<section data-slide>
 					<div class="slide-inner wide">
 						<div class="writing-head">
@@ -347,7 +350,8 @@ const NAV = [
 					</div>
 				</section>
 
-				*/}
+				*/
+				}
 
 				<!-- 6: Contact -->
 				<section data-slide>
@@ -405,7 +409,7 @@ const NAV = [
 				setTimeout(() => (locked = false), 480); // matches CSS transition
 			}
 
-			// click nav / brand / dots — jump straight there
+			// click nav / brand - jump straight there
 			document.querySelectorAll("[data-go]").forEach((el) => {
 				el.addEventListener("click", () => go(+el.dataset.go));
 			});

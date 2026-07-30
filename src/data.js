@@ -2,8 +2,27 @@
 // Image paths are relative to /public.
 
 export const stack = [
-	{ group: "Web development", items: ["React", "TypeScript", "Next.js", "Astro", "HTML/CSS", "Tailwind CSS"] },
-	{ group: "Growth & workflow", items: ["SEO", "AI workflows", "Project management", "Google Analytics", "Microsoft Clarity"] },
+	{
+		group: "Web development",
+		items: [
+			"React",
+			"TypeScript",
+			"Next.js",
+			"Astro",
+			"HTML/CSS",
+			"Tailwind CSS",
+		],
+	},
+	{
+		group: "Growth & workflow",
+		items: [
+			"SEO",
+			"AI workflows",
+			"Project management",
+			"Google Analytics",
+			"Microsoft Clarity",
+		],
+	},
 	{ group: "Tools", items: ["Git / GitHub", "Figma"] },
 ];
 
@@ -124,7 +143,10 @@ export const achievements = [
 ];
 
 export const gallery = [
-	{ img: "/img/community/gdsc-sticdo-speaker.jpg", alt: "Speaking at GDSC STI CDO" },
+	{
+		img: "/img/community/gdsc-sticdo-speaker.jpg",
+		alt: "Speaking at GDSC STI CDO",
+	},
 	{ img: "/img/community/campus-experts-1.jpg", alt: "GitHub Campus Experts" },
 	{ img: "/img/community/gdsc-sticdo.jpg", alt: "GDSC STI CDO community" },
 	{ img: "/img/community/campus-experts-2.jpg", alt: "Campus Experts meetup" },
