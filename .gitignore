@@ -29,3 +29,8 @@ dist-ssr
 
 # Contentlayer
 .contentlayer
+
+# Agent tooling scratch output
+.agents/
+.lavish/
+skills-lock.json
