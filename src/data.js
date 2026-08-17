@@ -2,8 +2,8 @@
 // Image paths are relative to /public.
 
 export const stack = [
-	{ group: "Web development", items: ["React", "TypeScript", "Next.js", "Astro", "HTML/CSS", "Tailwind CSS"] },
-	{ group: "Growth & workflow", items: ["SEO", "AI workflows", "Project management", "Google Analytics", "Microsoft Clarity"] },
+	{ group: "Web development", items: ["React", "TypeScript", "Next.js", "Astro", "HTML/CSS", "Tailwind CSS", "Framer"] },
+	{ group: "Growth & workflow", items: ["SEO", "AI workflows", "n8n automation", "Project management", "Google Analytics", "Microsoft Clarity"] },
 	{ group: "Tools", items: ["Git / GitHub", "Figma"] },
 ];
 
@@ -78,7 +78,7 @@ export const experience = [
 export const community = [
 	{
 		period: "2025 — Now",
-		now: true,
+		now: false,
 		title: "Vice President — DevCon Cagayan de Oro",
 		points: [
 			"Program community events for local developers and professionals.",

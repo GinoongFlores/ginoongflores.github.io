@@ -4,7 +4,7 @@ import {
 	projects,
 	experience,
 	community,
-	achievements,
+	// achievements, — restore with the Achievements slide below
 	gallery,
 	socials,
 } from "../data.js";
@@ -25,10 +25,10 @@ const NAV = [
 	{ label: "Stack", i: 1 },
 	{ label: "Projects", i: 2 },
 	{ label: "Experience", i: 3 },
-	{ label: "Achievements", i: 4 },
-	{ label: "Gallery", i: 5 },
-	// { label: "Writing", i: 6 },
-	{ label: "Contact", i: 6 },
+	// { label: "Achievements", i: 4 },
+	{ label: "Gallery", i: 4 },
+	// { label: "Writing", i: 5 },
+	{ label: "Contact", i: 5 },
 ];
 ---
 
@@ -40,7 +40,7 @@ const NAV = [
 		<title>Christian Paul Flores — Web Developer</title>
 		<meta
 			name="description"
-			content="Christian Paul Flores builds websites and student tech communities. BSIT graduate, GDSC lead, and GitHub Campus Expert based in Cagayan de Oro, Philippines."
+			content="Christian Paul Flores builds websites and web applications for clients, teaches IT in the academe, and builds developer communities as a GitHub Campus Expert. Based in Cagayan de Oro, Philippines."
 		/>
 		<meta
 			name="google-site-verification"
@@ -153,10 +153,10 @@ const NAV = [
 							engineering.
 						</h1>
 						<p class="lead">
-							Web Specialist at Evalics, building applications with React,
-							TypeScript, and Next.js. I teach IT in the academe, and spent
-							years building developer communities as a GitHub Campus Expert and
-							GDSC Lead. BS Information Technology, STI College.
+							Web Specialist at Evalics, building fast, reliable websites and
+							web applications with modern web tools. I teach IT in the academe,
+							and spent years building developer communities as a GitHub Campus
+							Expert.
 						</p>
 						<div class="cta-row">
 							<a href={`mailto:${socials.email}`} class="btn btn-solid"
@@ -271,7 +271,8 @@ const NAV = [
 					</div>
 				</section>
 
-				<!-- 4: Achievements -->
+				{/* Achievements — hidden until the list is worth its own slide. */}
+				{/*
 				<section data-slide>
 					<div class="slide-inner wide">
 						<h2 class="section-label">04 — Achievements</h2>
@@ -292,11 +293,12 @@ const NAV = [
 						</div>
 					</div>
 				</section>
+				*/}
 
-				<!-- 5: Gallery -->
+				<!-- 4: Gallery -->
 				<section data-slide>
 					<div class="slide-inner wide">
-						<h2 class="section-label">05 — Gallery</h2>
+						<h2 class="section-label">04 — Gallery</h2>
 						<div class="gallery">
 							{gallery.map((g) => <img src={g.img} alt={g.alt} />)}
 						</div>
@@ -349,10 +351,10 @@ const NAV = [
 
 				*/}
 
-				<!-- 6: Contact -->
+				<!-- 5: Contact -->
 				<section data-slide>
 					<div class="slide-inner contact">
-						<h2 class="section-label">06 — Contact</h2>
+						<h2 class="section-label">05 — Contact</h2>
 						<h2 class="contact-email">
 							<a href={`mailto:${socials.email}`}>{socials.email}</a>
 						</h2>
