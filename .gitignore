@@ -15,6 +15,9 @@ dist-ssr
 # Astro
 .astro
 
+# Local bun runs; CI installs from package-lock.json
+bun.lock
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
